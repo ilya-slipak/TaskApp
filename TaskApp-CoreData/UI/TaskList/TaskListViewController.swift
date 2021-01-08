@@ -11,7 +11,7 @@ final class TaskListViewController: UIViewController {
     
     // MARK: - IBOutlet Properties
     
-    @IBOutlet private weak var newTaskButton: UIButton!
+    @IBOutlet private weak var newTaskButton: CustomButton!
     
     // MARK: - Lifecycle Methods
 
@@ -39,6 +39,7 @@ final class TaskListViewController: UIViewController {
                                          style: .plain,
                                          target: self,
                                          action: #selector(sortButtonAction))
+        
         navigationItem.rightBarButtonItems = [filterButton, sortButton]
     }
     
@@ -47,7 +48,7 @@ final class TaskListViewController: UIViewController {
     @IBAction private func newTaskButtonAction(_ sender: UIButton) {
         
         let controller = ScreenFactory.makeNewTaskScreen()
-        present(controller, animated: true)
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     @objc

@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,11 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yk-tD-roj">
-                                <rect key="frame" x="114" y="788" width="186" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="tXk-s3-s4Z"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yk-tD-roj" customClass="CustomButton" customModule="TaskApp_CoreData" customModuleProvider="target">
+                                <rect key="frame" x="114" y="802" width="186" height="30"/>
                                 <state key="normal" title="New Task">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -39,7 +37,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="newTaskButton" destination="2yk-tD-roj" id="GIw-uT-zlp"/>
+                        <outlet property="newTaskButton" destination="2yk-tD-roj" id="uXe-Y8-WNQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -64,13 +62,94 @@
         <!--New Task View Controller-->
         <scene sceneID="K2G-yO-Jha">
             <objects>
-                <viewController storyboardIdentifier="NewTaskViewController" id="qLj-jE-VWh" customClass="NewTaskViewController" customModule="TaskApp_CoreData" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewTaskViewController" modalPresentationStyle="overFullScreen" id="qLj-jE-VWh" customClass="NewTaskViewController" customModule="TaskApp_CoreData" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pe4-Fh-QlW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pLr-VG-Maw">
+                                <rect key="frame" x="20" y="74" width="374" height="370"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="YCn-BJ-5wx">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TjM-C4-lEt" customClass="CustomTextField" customModule="TaskApp_CoreData" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                                <color key="backgroundColor" name="AppGrayColor"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xoc-gy-AXR" customClass="ErrorLabel" customModule="TaskApp_CoreData" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" systemColor="systemRedColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Sk5-Db-S3l">
+                                        <rect key="frame" x="0.0" y="50" width="374" height="80"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Img-V2-5TO" customClass="CustomTextView" customModule="TaskApp_CoreData" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
+                                                <color key="backgroundColor" name="AppGrayColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="N2o-p2-vdP"/>
+                                                </constraints>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="856-rw-iia" customClass="ErrorLabel" customModule="TaskApp_CoreData" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" systemColor="systemRedColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="374" placeholderIntrinsicHeight="104" translatesAutoresizingMaskIntoConstraints="NO" id="lnh-nt-ezN" customClass="MediaPickerView" customModule="TaskApp_CoreData" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="146" width="374" height="104"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="374" placeholderIntrinsicHeight="104" translatesAutoresizingMaskIntoConstraints="NO" id="mpP-7m-at3" customClass="MediaPickerView" customModule="TaskApp_CoreData" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="266" width="374" height="104"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqq-S0-dfu" customClass="CustomButton" customModule="TaskApp_CoreData" customModuleProvider="target">
+                                <rect key="frame" x="103" y="802" width="208" height="30"/>
+                                <state key="normal" title="Create">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="createButtonAction:" destination="qLj-jE-VWh" eventType="touchUpInside" id="hQa-F0-Zof"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="WSh-yR-94f"/>
-                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hqq-S0-dfu" firstAttribute="top" relation="greaterThanOrEqual" secondItem="pLr-VG-Maw" secondAttribute="bottom" constant="20" id="0xi-Ep-eK2"/>
+                            <constraint firstItem="WSh-yR-94f" firstAttribute="bottom" secondItem="hqq-S0-dfu" secondAttribute="bottom" constant="30" id="Hp6-Z3-Qmw"/>
+                            <constraint firstItem="hqq-S0-dfu" firstAttribute="width" secondItem="pe4-Fh-QlW" secondAttribute="width" multiplier="0.5" constant="1" id="OsQ-Bi-g1i"/>
+                            <constraint firstItem="WSh-yR-94f" firstAttribute="trailing" secondItem="pLr-VG-Maw" secondAttribute="trailing" constant="20" id="PjL-Lu-mV5"/>
+                            <constraint firstItem="hqq-S0-dfu" firstAttribute="centerX" secondItem="pe4-Fh-QlW" secondAttribute="centerX" id="qEI-4l-vpc"/>
+                            <constraint firstItem="pLr-VG-Maw" firstAttribute="leading" secondItem="WSh-yR-94f" secondAttribute="leading" constant="20" id="wyV-80-X8y"/>
+                            <constraint firstItem="pLr-VG-Maw" firstAttribute="top" secondItem="WSh-yR-94f" secondAttribute="top" constant="30" id="yPp-Mi-i1E"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="createButton" destination="hqq-S0-dfu" id="4Km-On-28Y"/>
+                        <outlet property="descriptionErrorLabel" destination="856-rw-iia" id="h5z-XF-xhi"/>
+                        <outlet property="descriptionTextView" destination="Img-V2-5TO" id="DPW-V8-K0N"/>
+                        <outlet property="photoMediaPicker" destination="lnh-nt-ezN" id="0Xu-tt-W4q"/>
+                        <outlet property="titleErrorLabel" destination="Xoc-gy-AXR" id="QZH-N5-3fM"/>
+                        <outlet property="titleTextField" destination="TjM-C4-lEt" id="Lpn-Ma-Ygl"/>
+                        <outlet property="videoMediaPicker" destination="mpP-7m-at3" id="075-wA-R80"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wfo-67-pCk" sceneMemberID="firstResponder"/>
             </objects>
@@ -140,7 +219,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </pickerView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="AppGrayColor"/>
                                 <constraints>
                                     <constraint firstItem="yJz-S8-Ryb" firstAttribute="leading" secondItem="VSH-1V-UKV" secondAttribute="leading" id="BWa-2e-yGR"/>
                                     <constraint firstAttribute="trailing" secondItem="aYh-JT-lgf" secondAttribute="trailing" id="HKL-yZ-cHd"/>
@@ -268,7 +347,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </pickerView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="AppGrayColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Q5L-PN-k49" secondAttribute="trailing" id="27H-Hb-cHs"/>
                                     <constraint firstItem="e4z-dz-aIR" firstAttribute="leading" secondItem="mtP-cm-UIU" secondAttribute="leading" id="6R3-pm-6cm"/>
@@ -319,8 +398,14 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AppGrayColor">
+            <color red="0.11800000071525574" green="0.11800000071525574" blue="0.11800000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
