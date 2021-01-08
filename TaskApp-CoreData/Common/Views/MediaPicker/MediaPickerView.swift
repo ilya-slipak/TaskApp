@@ -45,6 +45,13 @@ final class MediaPickerView: UIView {
         
         headerLabel.text = type.title
         dataSource = inputDataSource
+        collectionView.reloadData()
+    }
+    
+    func appendNewElement(data: Data) {
+        
+        dataSource.append(data)
+        collectionView.reloadData()
     }
 }
 
@@ -69,7 +76,7 @@ extension MediaPickerView: UICollectionViewDataSource, UICollectionViewDelegate 
         let identifier = MediaCollectionViewCell.reuseIdentifier
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! MediaCollectionViewCell
         let mediaData = dataSource[indexPath.row]
-        cell.configure(data: mediaData)
+        cell.configure(with: mediaData)
 
         return cell
     }

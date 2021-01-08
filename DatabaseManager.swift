@@ -12,6 +12,12 @@ final class DatabaseManager {
     
     static let shared = DatabaseManager()
     
+    // MARK: - Public Properties
+    
+    var context: NSManagedObjectContext {
+        return persistentContainer.viewContext
+    }
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {

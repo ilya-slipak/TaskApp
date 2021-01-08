@@ -16,6 +16,12 @@ final class MediaCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var imageView: UIImageView!
     
     // MARK: - Lifecycle Methods
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        layer.cornerRadius = 8
+    }
         
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -25,7 +31,7 @@ final class MediaCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Setup Methods
     
-    func configure(data: Data) {
+    func configure(with data: Data) {
         
         imageView.image = UIImage(data: data)
     }

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="File" representedClassName="File" syncable="YES">
+        <attribute name="compressedData" optional="YES" attributeType="Binary"/>
         <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="identifier" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="path" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="originalData" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <relationship name="photoRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="photoAttachments" inverseEntity="Task"/>
         <relationship name="videoRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="videoAttachments" inverseEntity="Task"/>
     </entity>
@@ -17,7 +18,7 @@
         <relationship name="videoAttachments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="File" inverseName="videoRelationship" inverseEntity="File"/>
     </entity>
     <elements>
+        <element name="File" positionX="104.6254272460938" positionY="26.91439819335938" width="128" height="119"/>
         <element name="Task" positionX="-63" positionY="-18" width="128" height="148"/>
-        <element name="File" positionX="104.6254272460938" positionY="26.91439819335938" width="128" height="118"/>
     </elements>
 </model>

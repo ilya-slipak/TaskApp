@@ -15,7 +15,8 @@ extension File {
         return NSFetchRequest<File>(entityName: "File")
     }
 
-    @NSManaged public var path: Data?
+    @NSManaged public var originalData: Data?
+    @NSManaged public var compressedData: Data?
     @NSManaged public var createdAt: Date?
     @NSManaged public var identifier: UUID?
     @NSManaged public var photoRelationship: Task?
