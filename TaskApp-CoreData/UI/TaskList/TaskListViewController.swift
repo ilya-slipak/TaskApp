@@ -18,11 +18,16 @@ final class TaskListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Task list"
-        setupNavigationBar()
+        setupView()
     }
     
     // MARK: - Private Methods
+    
+    private func setupView() {
+        
+        title = "Task list"
+        setupNavigationBar()
+    }
     
     private func setupNavigationBar() {
         

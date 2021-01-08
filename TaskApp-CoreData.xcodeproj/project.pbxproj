@@ -14,6 +14,8 @@
 		05872B2F25A786110040FB0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05872B2E25A786110040FB0B /* Assets.xcassets */; };
 		05872B3225A786110040FB0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05872B3025A786110040FB0B /* LaunchScreen.storyboard */; };
 		05872B4625A787810040FB0B /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05872B4525A787810040FB0B /* DatabaseManager.swift */; };
+		058C99F725A870870087D005 /* VideoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058C99F625A870870087D005 /* VideoPreviewViewController.swift */; };
+		058C99FA25A870950087D005 /* PhotoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058C99F925A870950087D005 /* PhotoPreviewViewController.swift */; };
 		05BB6F7925A78899004B38E0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BB6F7825A78899004B38E0 /* Theme.swift */; };
 		05DEF73A25A79DF100AE704B /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF73625A79DF100AE704B /* Task+CoreDataClass.swift */; };
 		05DEF73B25A79DF100AE704B /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF73725A79DF100AE704B /* Task+CoreDataProperties.swift */; };
@@ -39,6 +41,8 @@
 		05872B3125A786110040FB0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05872B3325A786110040FB0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05872B4525A787810040FB0B /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = SOURCE_ROOT; };
+		058C99F625A870870087D005 /* VideoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreviewViewController.swift; sourceTree = "<group>"; };
+		058C99F925A870950087D005 /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
 		05BB6F7825A78899004B38E0 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		05DEF73625A79DF100AE704B /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
 		05DEF73725A79DF100AE704B /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 		05872B3E25A786BD0040FB0B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				058C99F525A8706E0087D005 /* VideoPreview */,
+				058C99F425A870640087D005 /* PhotoPreview */,
 				05DEF75A25A7A21100AE704B /* TaskSort */,
 				05DEF75925A7A20900AE704B /* TaskFilter */,
 				05DEF74425A79E6600AE704B /* EditTask */,
@@ -168,6 +174,22 @@
 				05DEF74825A79F1100AE704B /* UIView+MakeFromNib.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		058C99F425A870640087D005 /* PhotoPreview */ = {
+			isa = PBXGroup;
+			children = (
+				058C99F925A870950087D005 /* PhotoPreviewViewController.swift */,
+			);
+			path = PhotoPreview;
+			sourceTree = "<group>";
+		};
+		058C99F525A8706E0087D005 /* VideoPreview */ = {
+			isa = PBXGroup;
+			children = (
+				058C99F625A870870087D005 /* VideoPreviewViewController.swift */,
+			);
+			path = VideoPreview;
 			sourceTree = "<group>";
 		};
 		05BB6F7725A7888D004B38E0 /* Theme */ = {
@@ -315,6 +337,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				058C99FA25A870950087D005 /* PhotoPreviewViewController.swift in Sources */,
+				058C99F725A870870087D005 /* VideoPreviewViewController.swift in Sources */,
 				05872B2725A786100040FB0B /* TaskListViewController.swift in Sources */,
 				05DEF75C25A7A22900AE704B /* TaskSortViewController.swift in Sources */,
 				05DEF74925A79F1100AE704B /* UIView+MakeFromNib.swift in Sources */,

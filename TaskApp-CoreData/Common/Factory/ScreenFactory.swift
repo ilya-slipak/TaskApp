@@ -56,4 +56,20 @@ enum ScreenFactory {
         
         return controller
     }
+    
+    static func makePhotoPreviewScreen() -> PhotoPreviewViewController {
+        
+        let controller =  UIStoryboard
+            .makeController(name: "Main", identifier: "PhotoPreviewViewController") as! PhotoPreviewViewController
+        
+        return controller
+    }
+    
+    static func makeVideoPreviewScreen() -> VideoPreviewViewController {
+        
+        let controller =  UIStoryboard
+            .makeController(name: "Main", identifier: "VideoPreviewViewController") as! VideoPreviewViewController
+        
+        return controller
+    }
 }
