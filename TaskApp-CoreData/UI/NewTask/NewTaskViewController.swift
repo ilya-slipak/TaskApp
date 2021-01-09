@@ -39,7 +39,7 @@ final class NewTaskViewController: UIViewController {
         title = "New task"
         titleTextField.placeholder = "Enter task name"
         descriptionTextView.setupPlaceholder(text: "Description")
-        photoMediaPicker.setup(with: [], type: .image)
+        photoMediaPicker.setup(with: images, type: .image)
         videoMediaPicker.setup(with: [], type: .video)
         
         photoMediaPicker.onAdd = { [weak self] in
@@ -48,15 +48,20 @@ final class NewTaskViewController: UIViewController {
                 return
             }
             
-            self.imagePicker.presentImagePicker(in: self, sourceType: .photoLibrary) { result in
+            self.imagePicker.presentImagePicker(in: self, sourceType: .photoLibrary) { [weak self] result in
+                guard let self = self else {
+                    return
+                }
                 switch result {
-                case .success(let data, let compressedData):
-                    guard let data = data, let compressedData = compressedData else {
+                case .success(let originalURL, let compressedURL):
+                    guard let originalURL = originalURL,
+                          let compressedURL = compressedURL else {
                         return
                     }
-                    let newImageModel = ImageModel(originalData: data, compressedData: compressedData)
-                    self.images.append(newImageModel)
-                    self.photoMediaPicker.appendNewElement(data: compressedData)
+                    
+                    let imageModel = ImageModel(originalURL: originalURL, compressedURL: compressedURL)
+                    self.images.append(imageModel)
+                    self.photoMediaPicker.setup(with: self.images, type: .image)
                 }
             }
             
@@ -96,10 +101,10 @@ final class NewTaskViewController: UIViewController {
         
         images.forEach { image in
             
-            let file = File(originalData: image.originalData,
-                            compressedData: image.compressedData,
-                            context: context)
-            photoAttachements.append(file)
+//            let file = File(originalData: image.originalData,
+//                            compressedData: image.compressedData,
+//                            context: context)
+//            photoAttachements.append(file)
         }
         let _ = Task(title: title, description: description, photoAttachments: photoAttachements, videoAttachments: videoAttachements, context: context)
     }
@@ -120,13 +125,8 @@ final class NewTaskViewController: UIViewController {
     }
 }
 
- // MARK: - ImageModel
-
-extension NewTaskViewController {
+struct ImageModel {
     
-    struct ImageModel {
-        
-        var originalData: Data
-        var compressedData: Data
-    }
+    var originalURL: URL
+    var compressedURL: URL
 }

@@ -12,7 +12,7 @@ final class MediaPickerView: UIView {
     // MARK: - Closure Properties
     
     var onAdd: (() -> Void)?
-    var onSelect: ((_ data: Data) -> Void)?
+    var onSelect: ((_ imageModel: ImageModel) -> Void)?
     
     // MARK: - IBOutlet Properties
 
@@ -21,7 +21,7 @@ final class MediaPickerView: UIView {
     
     // MARK: - Private Properties
     
-    private var dataSource: [Data] = []
+    private var dataSource: [ImageModel] = []
     
     // MARK: - Lifecycle Methods
     
@@ -41,16 +41,10 @@ final class MediaPickerView: UIView {
     
     // MARK: - Setup Methods
     
-    func setup(with inputDataSource: [Data], type: MediaType) {
+    func setup(with inputDataSource: [ImageModel], type: MediaType) {
         
         headerLabel.text = type.title
         dataSource = inputDataSource
-        collectionView.reloadData()
-    }
-    
-    func appendNewElement(data: Data) {
-        
-        dataSource.append(data)
         collectionView.reloadData()
     }
 }

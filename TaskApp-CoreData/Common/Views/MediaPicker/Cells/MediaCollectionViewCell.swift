@@ -31,8 +31,13 @@ final class MediaCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Setup Methods
     
-    func configure(with data: Data) {
-        
-        imageView.image = UIImage(data: data)
+    func configure(with imageModel: ImageModel) {
+        do {
+            let image = try UIGraphicsRenderer.renderImageAt(url: NSURL(resolvingAliasFileAt: imageModel.compressedURL), size: frame.size)
+            imageView.image = image
+        } catch {
+            print(error)
+        }
+
     }
 }

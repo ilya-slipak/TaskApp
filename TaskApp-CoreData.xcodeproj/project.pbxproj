@@ -30,6 +30,7 @@
 		05C1A21625A8E574004C8038 /* AddMediaCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C1A21425A8E574004C8038 /* AddMediaCollectionViewCell.xib */; };
 		05D092A725A8F9CA000B5B52 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D092A625A8F9CA000B5B52 /* ImagePicker.swift */; };
 		05D092AA25A9018C000B5B52 /* UIImage+ResizedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D092A925A9018C000B5B52 /* UIImage+ResizedImage.swift */; };
+		05DCFC1F25AA5DBA000EDD45 /* UIGrapchicRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCFC1E25AA5DBA000EDD45 /* UIGrapchicRender.swift */; };
 		05DEF73A25A79DF100AE704B /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF73625A79DF100AE704B /* Task+CoreDataClass.swift */; };
 		05DEF73B25A79DF100AE704B /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF73725A79DF100AE704B /* Task+CoreDataProperties.swift */; };
 		05DEF73C25A79DF100AE704B /* File+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF73825A79DF100AE704B /* File+CoreDataClass.swift */; };
@@ -46,6 +47,7 @@
 		05EC3B1C25A8D20500A1FE90 /* CusomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EC3B1B25A8D20500A1FE90 /* CusomButton.swift */; };
 		05EC3B1F25A8D21A00A1FE90 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EC3B1E25A8D21A00A1FE90 /* CustomTextField.swift */; };
 		05EC3B2225A8D22A00A1FE90 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EC3B2125A8D22A00A1FE90 /* CustomTextView.swift */; };
+		05ECB8CC25AA3DE000504FDA /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ECB8CB25AA3DE000504FDA /* FileManager.swift */; };
 		05F01EB925A8C15C0037A40C /* TextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F01EB825A8C15C0037A40C /* TextValidator.swift */; };
 		05F01EBC25A8C24A0037A40C /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F01EBB25A8C24A0037A40C /* ValidationError.swift */; };
 		05F01EBF25A8C2E20037A40C /* UITextField+ValidateText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F01EBE25A8C2E20037A40C /* UITextField+ValidateText.swift */; };
@@ -78,6 +80,7 @@
 		05C1A21425A8E574004C8038 /* AddMediaCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMediaCollectionViewCell.xib; sourceTree = "<group>"; };
 		05D092A625A8F9CA000B5B52 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		05D092A925A9018C000B5B52 /* UIImage+ResizedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ResizedImage.swift"; sourceTree = "<group>"; };
+		05DCFC1E25AA5DBA000EDD45 /* UIGrapchicRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGrapchicRender.swift; sourceTree = "<group>"; };
 		05DEF73625A79DF100AE704B /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
 		05DEF73725A79DF100AE704B /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		05DEF73825A79DF100AE704B /* File+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "File+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -94,6 +97,7 @@
 		05EC3B1B25A8D20500A1FE90 /* CusomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CusomButton.swift; sourceTree = "<group>"; };
 		05EC3B1E25A8D21A00A1FE90 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		05EC3B2125A8D22A00A1FE90 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
+		05ECB8CB25AA3DE000504FDA /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		05F01EB825A8C15C0037A40C /* TextValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextValidator.swift; sourceTree = "<group>"; };
 		05F01EBB25A8C24A0037A40C /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 		05F01EBE25A8C2E20037A40C /* UITextField+ValidateText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+ValidateText.swift"; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 		05872B4025A786CF0040FB0B /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				05ECB8CA25AA3DD200504FDA /* FileManager */,
 				05872B4125A786DA0040FB0B /* Database */,
 			);
 			path = Managers;
@@ -242,6 +247,7 @@
 				05F01EBE25A8C2E20037A40C /* UITextField+ValidateText.swift */,
 				050BEE5525A8C5B800603AC9 /* CustomTextView+ValidateText.swift */,
 				05D092A925A9018C000B5B52 /* UIImage+ResizedImage.swift */,
+				05DCFC1E25AA5DBA000EDD45 /* UIGrapchicRender.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -378,6 +384,14 @@
 			path = UILabel;
 			sourceTree = "<group>";
 		};
+		05ECB8CA25AA3DD200504FDA /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				05ECB8CB25AA3DE000504FDA /* FileManager.swift */,
+			);
+			path = FileManager;
+			sourceTree = "<group>";
+		};
 		05F01EB425A8BF3C0037A40C /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,6 +504,7 @@
 				05F01EBF25A8C2E20037A40C /* UITextField+ValidateText.swift in Sources */,
 				05C1A21525A8E574004C8038 /* AddMediaCollectionViewCell.swift in Sources */,
 				05DEF75C25A7A22900AE704B /* TaskSortViewController.swift in Sources */,
+				05DCFC1F25AA5DBA000EDD45 /* UIGrapchicRender.swift in Sources */,
 				05A68D2525A8C631004FBE18 /* ValidationConvertible.swift in Sources */,
 				05A68D2C25A8C66E004FBE18 /* ValidationFactory.swift in Sources */,
 				05F01EB925A8C15C0037A40C /* TextValidator.swift in Sources */,
@@ -503,6 +518,7 @@
 				05EC3B1F25A8D21A00A1FE90 /* CustomTextField.swift in Sources */,
 				05D092A725A8F9CA000B5B52 /* ImagePicker.swift in Sources */,
 				058C99FE25A8753D0087D005 /* BasePickerViewController.swift in Sources */,
+				05ECB8CC25AA3DE000504FDA /* FileManager.swift in Sources */,
 				05A68D2825A8C656004FBE18 /* ValidationType.swift in Sources */,
 				05872B4625A787810040FB0B /* DatabaseManager.swift in Sources */,
 				05DEF75725A7A10F00AE704B /* EditTaskViewController.swift in Sources */,

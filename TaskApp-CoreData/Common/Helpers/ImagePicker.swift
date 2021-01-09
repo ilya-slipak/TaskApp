@@ -82,6 +82,16 @@ final class ImagePicker: NSObject {
             break
         }
     }
+    
+    // MARK: - Private Methods
+    
+    private func generateImageURLPath(imageData: Data?) -> URL? {
+        
+        let filePath = "\(UUID().uuidString).jpeg"
+        let fileUrl = FileManager.default.saveFile(with: filePath, data: imageData)
+        
+        return fileUrl
+    }
 }
 
  // MARK: - UIImagePickerControllerDelegate
@@ -94,8 +104,11 @@ extension ImagePicker: UIImagePickerControllerDelegate {
         if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             let imageData = originalImage.jpegData(compressionQuality: 1)
             let compressedData = originalImage.jpegData(compressionQuality: 0.1)
-            completion?(.success(data: imageData,
-                                 compressedData: compressedData))
+            let originalURLPath = generateImageURLPath(imageData: imageData)
+            let compressedURLPath = generateImageURLPath(imageData: compressedData)
+            
+            completion?(.success(originalURL: originalURLPath,
+                                 compressedURL: compressedURLPath))
         }
         completion = nil
         picker.dismiss(animated: true, completion: nil)
@@ -132,6 +145,6 @@ extension ImagePicker {
 extension ImagePicker {
     
     enum Result {
-        case success(data: Data?, compressedData: Data?)
+        case success(originalURL: URL?, compressedURL: URL?)
     }
 }
