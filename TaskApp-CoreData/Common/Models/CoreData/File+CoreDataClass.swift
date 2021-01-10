@@ -2,7 +2,7 @@
 //  File+CoreDataClass.swift
 //  TaskApp-CoreData
 //
-//  Created by Ilya Slipak on 07.01.2021.
+//  Created by Ilya Slipak on 10.01.2021.
 //
 //
 
@@ -12,14 +12,14 @@ import CoreData
 @objc(File)
 public class File: NSManagedObject {
 
-    convenience init(originalData: Data,
-                     compressedData: Data,
+    convenience init(originalPath: String,
+                     compressedPath: String,
                      context: NSManagedObjectContext) {
         self.init(context: context)
         
-        self.originalData = originalData
-        self.compressedData = compressedData
+        self.originalPath = originalPath
+        self.thumbnailPath = compressedPath
         self.createdAt = Date()
-        self.identifier = UUID()
+//        self.identifier = UUID()
     }
 }

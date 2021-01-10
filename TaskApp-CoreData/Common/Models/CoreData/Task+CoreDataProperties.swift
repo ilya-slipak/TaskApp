@@ -2,12 +2,13 @@
 //  Task+CoreDataProperties.swift
 //  TaskApp-CoreData
 //
-//  Created by Ilya Slipak on 07.01.2021.
+//  Created by Ilya Slipak on 10.01.2021.
 //
 //
 
 import Foundation
 import CoreData
+
 
 extension Task {
 
@@ -15,13 +16,12 @@ extension Task {
         return NSFetchRequest<Task>(entityName: "Task")
     }
 
-    @NSManaged public var title: String?
-    @NSManaged public var info: String?
     @NSManaged public var createdAt: Date?
-    @NSManaged public var status: String?
     @NSManaged public var identifier: UUID?
+    @NSManaged public var info: String?
+    @NSManaged public var status: String?
+    @NSManaged public var title: String?
     @NSManaged public var photoAttachments: NSSet?
-    @NSManaged public var videoAttachments: NSSet?
 
 }
 
@@ -39,23 +39,6 @@ extension Task {
 
     @objc(removePhotoAttachments:)
     @NSManaged public func removeFromPhotoAttachments(_ values: NSSet)
-
-}
-
-// MARK: Generated accessors for videoAttachments
-extension Task {
-
-    @objc(addVideoAttachmentsObject:)
-    @NSManaged public func addToVideoAttachments(_ value: File)
-
-    @objc(removeVideoAttachmentsObject:)
-    @NSManaged public func removeFromVideoAttachments(_ value: File)
-
-    @objc(addVideoAttachments:)
-    @NSManaged public func addToVideoAttachments(_ values: NSSet)
-
-    @objc(removeVideoAttachments:)
-    @NSManaged public func removeFromVideoAttachments(_ values: NSSet)
 
 }
 

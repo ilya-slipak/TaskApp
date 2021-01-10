@@ -97,16 +97,20 @@ final class NewTaskViewController: UIViewController {
         
         let context = DatabaseManager.shared.context
         var photoAttachements: [File] = []
-        var videoAttachements: [File] = []
+//        var videoAttachements: [File] = []
         
         images.forEach { image in
             
-//            let file = File(originalData: image.originalData,
-//                            compressedData: image.compressedData,
-//                            context: context)
-//            photoAttachements.append(file)
+            let file = File(originalPath: image.originalURL.path,
+                            compressedPath: image.compressedURL.path,
+                            context: context)
+            photoAttachements.append(file)
         }
-        let _ = Task(title: title, description: description, photoAttachments: photoAttachements, videoAttachments: videoAttachements, context: context)
+        let task = Task(title: title,
+                        description: description,
+                        photoAttachements: photoAttachements,
+                        context: context)
+        print("New task:", task)
     }
     
     // MARK: - Action Methods

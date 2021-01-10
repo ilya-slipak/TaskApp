@@ -2,7 +2,7 @@
 //  Task+CoreDataClass.swift
 //  TaskApp-CoreData
 //
-//  Created by Ilya Slipak on 07.01.2021.
+//  Created by Ilya Slipak on 10.01.2021.
 //
 //
 
@@ -12,9 +12,9 @@ import CoreData
 @objc(Task)
 public class Task: NSManagedObject {
 
-    convenience init(title: String, description: String,
-                     photoAttachments: [File],
-                     videoAttachments: [File],
+    convenience init(title: String,
+                     description: String,
+                     photoAttachements: [File],
                      context: NSManagedObjectContext) {
         self.init(context: context)
         
@@ -24,9 +24,9 @@ public class Task: NSManagedObject {
         self.status = "pending"
         self.identifier = UUID()
         
-        let photoSet = NSSet(object: photoAttachments)
-        addToPhotoAttachments(photoSet)
-        let videoSet = NSSet(object: photoAttachments)
-        addToVideoAttachments(videoSet)
+        photoAttachements.forEach { file in
+            addToPhotoAttachments(file)
+        }
     }
+   
 }

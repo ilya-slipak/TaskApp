@@ -2,12 +2,13 @@
 //  File+CoreDataProperties.swift
 //  TaskApp-CoreData
 //
-//  Created by Ilya Slipak on 07.01.2021.
+//  Created by Ilya Slipak on 10.01.2021.
 //
 //
 
 import Foundation
 import CoreData
+
 
 extension File {
 
@@ -15,12 +16,10 @@ extension File {
         return NSFetchRequest<File>(entityName: "File")
     }
 
-    @NSManaged public var originalData: Data?
-    @NSManaged public var compressedData: Data?
+    @NSManaged public var originalPath: String?
+    @NSManaged public var thumbnailPath: String?
     @NSManaged public var createdAt: Date?
-    @NSManaged public var identifier: UUID?
     @NSManaged public var photoRelationship: Task?
-    @NSManaged public var videoRelationship: Task?
 
 }
 
