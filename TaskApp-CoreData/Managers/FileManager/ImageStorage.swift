@@ -52,14 +52,13 @@ extension ImageStorage: FileStorage {
     
     func saveFile(data: Data?) -> URL? {
         
-        let fileName = "\(UUID().uuidString.lowercased()).jpeg"
-        
         guard
             let directory = documentDirectory,
             let fileData = data else {
             return nil
         }
         
+        let fileName = "\(UUID().uuidString.lowercased()).jpeg"
         let fileURL = directory.appendingPathComponent(fileName)
         
         if !FileManager.default.fileExists(atPath: fileURL.path) {

@@ -39,14 +39,13 @@ extension VideoStorage: FileStorage {
     
     func saveFile(data: Data?) -> URL? {
         
-        let fileName = "\(UUID().uuidString.lowercased()).mp4"
-        
         guard
             let directory = documentDirectory,
             let fileData = data else {
             return nil
         }
         
+        let fileName = "\(UUID().uuidString.lowercased()).mp4"
         let dataPath = directory.appendingPathComponent(fileName)
         
         if !FileManager.default.fileExists(atPath: dataPath.path) {
