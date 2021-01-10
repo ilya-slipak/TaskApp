@@ -46,6 +46,17 @@ final class DatabaseManager {
         })
         return container
     }()
+    
+    func fetchEntities<ModelEntity: NSManagedObject>(object: ModelEntity.Type,
+                                                     predicate: NSPredicate?) throws -> [ModelEntity] {
+        
+        let fetchRequest = NSFetchRequest<ModelEntity>(entityName: "\(ModelEntity.self)")
+        fetchRequest.predicate = predicate
+        
+        let models = try context.fetch(fetchRequest)
+        
+        return models
+    }
 
     // MARK: - Core Data Saving support
 

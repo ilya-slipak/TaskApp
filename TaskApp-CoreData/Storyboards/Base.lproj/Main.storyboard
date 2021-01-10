@@ -27,17 +27,30 @@
                                     <action selector="newTaskButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U9C-MD-FnJ"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9EH-re-EY0">
+                                <rect key="frame" x="0.0" y="44" width="414" height="750"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Cc6-ff-tmR"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="QRQ-z8-xv1"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2yk-tD-roj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AtU-t4-n2m"/>
                             <constraint firstItem="2yk-tD-roj" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.45" id="J7N-kd-2e8"/>
+                            <constraint firstItem="2yk-tD-roj" firstAttribute="top" secondItem="9EH-re-EY0" secondAttribute="bottom" constant="8" id="Sv9-nN-Abk"/>
+                            <constraint firstItem="9EH-re-EY0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="X4C-JW-2gP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9EH-re-EY0" secondAttribute="trailing" id="ZrW-iQ-3u8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2yk-tD-roj" secondAttribute="bottom" constant="30" id="eL1-Lh-FNw"/>
+                            <constraint firstItem="9EH-re-EY0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wbc-V6-XSD"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="newTaskButton" destination="2yk-tD-roj" id="uXe-Y8-WNQ"/>
+                        <outlet property="tableView" destination="9EH-re-EY0" id="W8f-Jg-DhR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

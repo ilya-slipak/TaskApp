@@ -2,8 +2,9 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="File" representedClassName="File" syncable="YES">
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="originalPath" attributeType="String"/>
-        <attribute name="thumbnailPath" optional="YES" attributeType="String"/>
+        <attribute name="identifier" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="originalFilename" attributeType="String"/>
+        <attribute name="thumbnailFilename" optional="YES" attributeType="String"/>
         <relationship name="photoRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="photoAttachments" inverseEntity="Task"/>
     </entity>
     <entity name="Task" representedClassName="Task" syncable="YES">
@@ -15,7 +16,7 @@
         <relationship name="photoAttachments" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="File" inverseName="photoRelationship" inverseEntity="File"/>
     </entity>
     <elements>
+        <element name="File" positionX="18" positionY="54" width="128" height="104"/>
         <element name="Task" positionX="-63" positionY="-18" width="128" height="119"/>
-        <element name="File" positionX="18" positionY="54" width="128" height="89"/>
     </elements>
 </model>

@@ -7,15 +7,18 @@
 
 import Foundation
 
-protocol FileStorable {
+protocol FileStorage {
     
+    // MARK: - Properties
+    var documentDirectory: URL? { get }
+    
+    // MARK: - Methods
     func saveFile(data: Data?) -> URL?
     func deleteFile(_ path: String)
-    func checkPath(_ path: String) -> Bool
-    func removeDirectory()
+    func removeAll()
 }
 
-extension FileStorable {
+extension FileStorage {
     
     func deleteFile(_ path: String) {
         

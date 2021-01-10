@@ -59,7 +59,7 @@ final class NewTaskViewController: UIViewController {
                         return
                     }
                     
-                    let imageModel = ImageModel(originalURL: originalURL, compressedURL: compressedURL)
+                    let imageModel = ImageModel(originalURL: originalURL, thumbnailURL: compressedURL)
                     self.images.append(imageModel)
                     self.photoMediaPicker.setup(with: self.images, type: .image)
                 }
@@ -99,16 +99,9 @@ final class NewTaskViewController: UIViewController {
         var photoAttachements: [File] = []
 //        var videoAttachements: [File] = []
         
-        images.forEach { image in
-            
-            let file = File(originalPath: image.originalURL.path,
-                            compressedPath: image.compressedURL.path,
-                            context: context)
-            photoAttachements.append(file)
-        }
         let task = Task(title: title,
                         description: description,
-                        photoAttachements: photoAttachements,
+                        images: images,
                         context: context)
         print("New task:", task)
     }
@@ -132,5 +125,5 @@ final class NewTaskViewController: UIViewController {
 struct ImageModel {
     
     var originalURL: URL
-    var compressedURL: URL
+    var thumbnailURL: URL
 }

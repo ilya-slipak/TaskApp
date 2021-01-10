@@ -16,10 +16,11 @@ extension File {
         return NSFetchRequest<File>(entityName: "File")
     }
 
-    @NSManaged public var originalPath: String?
-    @NSManaged public var thumbnailPath: String?
+    @NSManaged public var originalFilename: String?
+    @NSManaged public var thumbnailFilename: String?
     @NSManaged public var createdAt: Date?
     @NSManaged public var photoRelationship: Task?
+    @NSManaged public var identifier: UUID?
 
 }
 

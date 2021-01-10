@@ -9,57 +9,32 @@ import UIKit
 
 extension UIImage {
     
-    func resizeImage(newSize: CGSize, quality: JPEGQuality) -> UIImage? {
-        var actualHeight: CGFloat = size.height
-        var actualWidth: CGFloat = size.width
-        let maxHeight: CGFloat = newSize.height
-        let maxWidth: CGFloat = newSize.width
-        var imgRatio: CGFloat = actualWidth / actualHeight
-        let maxRatio: CGFloat = maxWidth / maxHeight
-        let compressionQuality = quality.rawValue
-
-        if actualHeight > maxHeight || actualWidth > maxWidth {
-            if imgRatio < maxRatio {
-                //adjust width according to maxHeight
-                imgRatio = maxHeight / actualHeight
-                actualWidth = imgRatio * actualWidth
-                actualHeight = maxHeight
-            }
-            else if imgRatio > maxRatio {
-                //adjust height according to maxWidth
-                imgRatio = maxWidth / actualWidth
-                actualHeight = imgRatio * actualHeight
-                actualWidth = maxWidth
-            }
-            else {
-                actualHeight = maxHeight
-                actualWidth = maxWidth
-            }
-        }
-
-        let rect = CGRect(x: 0.0, y: 0.0, width: actualWidth, height: actualHeight)
-        UIGraphicsBeginImageContext(rect.size)
-        draw(in: rect)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        let imageData = image?.jpegData(compressionQuality: compressionQuality)
-        UIGraphicsEndImageContext()
-        guard let unwrappedImageData = imageData else {
-            return nil
+    func resized(targetSize: CGSize) -> UIImage? {
+        
+        let selfSize = size
+        let widthRatio  = targetSize.width  / selfSize.width
+        let heightRatio = targetSize.height / selfSize.height
+        
+        var newSize: CGSize
+        if widthRatio > heightRatio {
+            newSize = CGSize(width: selfSize.width * heightRatio, height: selfSize.height * heightRatio)
+        } else {
+            newSize = CGSize(width: selfSize.width * widthRatio,  height: selfSize.height * widthRatio)
         }
         
-        return UIImage(data: unwrappedImageData)
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+        
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
+        draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
-}
-
-// MARK: - JPEGQuality
-
-extension UIImage {
     
-    enum JPEGQuality: CGFloat {
-        case lowest  = 0
-        case low     = 0.25
-        case medium  = 0.5
-        case high    = 0.75
-        case highest = 1
+    func scale(by scale: CGFloat) -> UIImage? {
+
+        let scaledSize = CGSize(width: size.width * scale, height: size.height * scale)
+        return resized(targetSize: scaledSize)
     }
 }

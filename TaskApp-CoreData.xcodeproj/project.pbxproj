@@ -16,7 +16,9 @@
 		0531E78F25A8D74500D976B5 /* MediaPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0531E78E25A8D74500D976B5 /* MediaPickerView.xib */; };
 		0531E79325A8D7FF00D976B5 /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0531E79125A8D7FF00D976B5 /* MediaCollectionViewCell.swift */; };
 		0531E79425A8D7FF00D976B5 /* MediaCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0531E79225A8D7FF00D976B5 /* MediaCollectionViewCell.xib */; };
-		053C102225AAFB090077DEBA /* FileStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C102125AAFB090077DEBA /* FileStorable.swift */; };
+		0536485025AB1B980084EBD4 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0536484E25AB1B980084EBD4 /* TaskTableViewCell.swift */; };
+		0536485125AB1B980084EBD4 /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0536484F25AB1B980084EBD4 /* TaskTableViewCell.xib */; };
+		053C102225AAFB090077DEBA /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C102125AAFB090077DEBA /* FileStorage.swift */; };
 		053C102525AAFB140077DEBA /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C102425AAFB140077DEBA /* ImageStorage.swift */; };
 		053C102825AAFB1E0077DEBA /* VideoStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C102725AAFB1E0077DEBA /* VideoStorage.swift */; };
 		05872B2325A786100040FB0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05872B2225A786100040FB0B /* AppDelegate.swift */; };
@@ -37,7 +39,6 @@
 		05C1A21625A8E574004C8038 /* AddMediaCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C1A21425A8E574004C8038 /* AddMediaCollectionViewCell.xib */; };
 		05D092A725A8F9CA000B5B52 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D092A625A8F9CA000B5B52 /* ImagePicker.swift */; };
 		05D092AA25A9018C000B5B52 /* UIImage+ResizedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D092A925A9018C000B5B52 /* UIImage+ResizedImage.swift */; };
-		05DCFC1F25AA5DBA000EDD45 /* UIGrapchicRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCFC1E25AA5DBA000EDD45 /* UIGrapchicRender.swift */; };
 		05DEF74625A79EEC00AE704B /* UIStoryboard+MakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF74525A79EEC00AE704B /* UIStoryboard+MakeController.swift */; };
 		05DEF74925A79F1100AE704B /* UIView+MakeFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF74825A79F1100AE704B /* UIView+MakeFromNib.swift */; };
 		05DEF74D25A79F5200AE704B /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF74C25A79F5200AE704B /* ScreenFactory.swift */; };
@@ -67,7 +68,9 @@
 		0531E78E25A8D74500D976B5 /* MediaPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaPickerView.xib; sourceTree = "<group>"; };
 		0531E79125A8D7FF00D976B5 /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
 		0531E79225A8D7FF00D976B5 /* MediaCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaCollectionViewCell.xib; sourceTree = "<group>"; };
-		053C102125AAFB090077DEBA /* FileStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorable.swift; sourceTree = "<group>"; };
+		0536484E25AB1B980084EBD4 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		0536484F25AB1B980084EBD4 /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
+		053C102125AAFB090077DEBA /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
 		053C102425AAFB140077DEBA /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
 		053C102725AAFB1E0077DEBA /* VideoStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStorage.swift; sourceTree = "<group>"; };
 		05872B1F25A786100040FB0B /* TaskApp-CoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TaskApp-CoreData.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,7 +93,6 @@
 		05C1A21425A8E574004C8038 /* AddMediaCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMediaCollectionViewCell.xib; sourceTree = "<group>"; };
 		05D092A625A8F9CA000B5B52 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		05D092A925A9018C000B5B52 /* UIImage+ResizedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ResizedImage.swift"; sourceTree = "<group>"; };
-		05DCFC1E25AA5DBA000EDD45 /* UIGrapchicRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGrapchicRender.swift; sourceTree = "<group>"; };
 		05DEF74525A79EEC00AE704B /* UIStoryboard+MakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+MakeController.swift"; sourceTree = "<group>"; };
 		05DEF74825A79F1100AE704B /* UIView+MakeFromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+MakeFromNib.swift"; sourceTree = "<group>"; };
 		05DEF74C25A79F5200AE704B /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
@@ -140,6 +142,15 @@
 				05C1A21425A8E574004C8038 /* AddMediaCollectionViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		0536484D25AB1B6F0084EBD4 /* TaskTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				0536484E25AB1B980084EBD4 /* TaskTableViewCell.swift */,
+				0536484F25AB1B980084EBD4 /* TaskTableViewCell.xib */,
+			);
+			path = TaskTableViewCell;
 			sourceTree = "<group>";
 		};
 		05872B1625A786100040FB0B = {
@@ -253,7 +264,6 @@
 				05F01EBE25A8C2E20037A40C /* UITextField+ValidateText.swift */,
 				050BEE5525A8C5B800603AC9 /* CustomTextView+ValidateText.swift */,
 				05D092A925A9018C000B5B52 /* UIImage+ResizedImage.swift */,
-				05DCFC1E25AA5DBA000EDD45 /* UIGrapchicRender.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -394,7 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				05ECB8CB25AA3DE000504FDA /* FileManager.swift */,
-				053C102125AAFB090077DEBA /* FileStorable.swift */,
+				053C102125AAFB090077DEBA /* FileStorage.swift */,
 				053C102425AAFB140077DEBA /* ImageStorage.swift */,
 				053C102725AAFB1E0077DEBA /* VideoStorage.swift */,
 			);
@@ -404,6 +414,7 @@
 		05F01EB425A8BF3C0037A40C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0536484D25AB1B6F0084EBD4 /* TaskTableViewCell */,
 				0531E78A25A8D70F00D976B5 /* MediaPicker */,
 				05EC3B1125A8D1A500A1FE90 /* UIButton */,
 				05EC3B1325A8D1BE00A1FE90 /* UILabel */,
@@ -494,6 +505,7 @@
 				0531E79425A8D7FF00D976B5 /* MediaCollectionViewCell.xib in Resources */,
 				05C1A21625A8E574004C8038 /* AddMediaCollectionViewCell.xib in Resources */,
 				05872B3225A786110040FB0B /* LaunchScreen.storyboard in Resources */,
+				0536485125AB1B980084EBD4 /* TaskTableViewCell.xib in Resources */,
 				05F01EC225A8C46F0037A40C /* Color.xcassets in Resources */,
 				05872B2F25A786110040FB0B /* Assets.xcassets in Resources */,
 				05872B2A25A786110040FB0B /* Main.storyboard in Resources */,
@@ -513,7 +525,6 @@
 				05F01EBF25A8C2E20037A40C /* UITextField+ValidateText.swift in Sources */,
 				05C1A21525A8E574004C8038 /* AddMediaCollectionViewCell.swift in Sources */,
 				05DEF75C25A7A22900AE704B /* TaskSortViewController.swift in Sources */,
-				05DCFC1F25AA5DBA000EDD45 /* UIGrapchicRender.swift in Sources */,
 				05A68D2525A8C631004FBE18 /* ValidationConvertible.swift in Sources */,
 				05A68D2C25A8C66E004FBE18 /* ValidationFactory.swift in Sources */,
 				05F01EB925A8C15C0037A40C /* TextValidator.swift in Sources */,
@@ -521,6 +532,7 @@
 				0531E78C25A8D72D00D976B5 /* MediaPickerView.swift in Sources */,
 				053C102825AAFB1E0077DEBA /* VideoStorage.swift in Sources */,
 				05DEF74D25A79F5200AE704B /* ScreenFactory.swift in Sources */,
+				0536485025AB1B980084EBD4 /* TaskTableViewCell.swift in Sources */,
 				0523E07625AAF36E00D04760 /* File+CoreDataClass.swift in Sources */,
 				05F01EBC25A8C24A0037A40C /* ValidationError.swift in Sources */,
 				053C102525AAFB140077DEBA /* ImageStorage.swift in Sources */,
@@ -542,7 +554,7 @@
 				05DEF75425A7A0F900AE704B /* NewTaskViewController.swift in Sources */,
 				05EC3B1925A8D1EF00A1FE90 /* ErrorLabel.swift in Sources */,
 				05DEF75125A7A0E000AE704B /* TaskDetailViewController.swift in Sources */,
-				053C102225AAFB090077DEBA /* FileStorable.swift in Sources */,
+				053C102225AAFB090077DEBA /* FileStorage.swift in Sources */,
 				05872B2D25A786110040FB0B /* TaskApp_CoreData.xcdatamodeld in Sources */,
 				05EC3B1C25A8D20500A1FE90 /* CusomButton.swift in Sources */,
 				0531E79325A8D7FF00D976B5 /* MediaCollectionViewCell.swift in Sources */,

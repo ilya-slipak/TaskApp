@@ -94,11 +94,11 @@ extension ImagePicker: UIImagePickerControllerDelegate {
         if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             let imageData = originalImage.jpegData(compressionQuality: 1)
             let compressedData = originalImage.jpegData(compressionQuality: compressionQuality)
-            let originalURLPath = ImageStorage.shared.saveFile(data: imageData)
-            let compressedURLPath = ImageStorage.shared.saveFile(data: compressedData)
+            let originalURL = ImageStorage.shared.saveFile(data: imageData)
+            let thumbnailURL = ImageStorage.shared.saveFile(data: compressedData)
             
-            completion?(.success(originalURL: originalURLPath,
-                                 compressedURL: compressedURLPath))
+            completion?(.success(originalURL: originalURL,
+                                 thumbnailURL: thumbnailURL))
         }
         completion = nil
         picker.dismiss(animated: true, completion: nil)
@@ -135,6 +135,6 @@ extension ImagePicker {
 extension ImagePicker {
     
     enum Result {
-        case success(originalURL: URL?, compressedURL: URL?)
+        case success(originalURL: URL?, thumbnailURL: URL?)
     }
 }

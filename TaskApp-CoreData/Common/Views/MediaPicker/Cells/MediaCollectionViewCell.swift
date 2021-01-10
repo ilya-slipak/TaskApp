@@ -32,12 +32,18 @@ final class MediaCollectionViewCell: UICollectionViewCell {
     // MARK: - Setup Methods
     
     func configure(with imageModel: ImageModel) {
-        do {
-            let image = try UIGraphicsRenderer.renderImageAt(url: NSURL(resolvingAliasFileAt: imageModel.compressedURL), size: frame.size)
-            imageView.image = image
-        } catch {
-            print(error)
-        }
+        
+        let fileName = imageModel.thumbnailURL.lastPathComponent
+        let image = ImageStorage.shared.getImage(fileName: fileName)
+        imageView.image = image?.resized(targetSize: frame.size)
+//        do {
+//            let image = try UIGraphicsRenderer.renderImageAt(
+//                path: imageModel.thumbnailURL.path,
+//                size: frame.size)
+//            imageView.image = image
+//        } catch {
+//            print(error)
+//        }
 
     }
 }

@@ -5,15 +5,15 @@
 //  Created by Ilya Slipak on 10.01.2021.
 //
 
-import Foundation
+import UIKit
 
 final class ImageStorage {
     
     static let shared = ImageStorage()
     
-    // MARK: - Private Properties
+    // MARK: - Properties
     
-    private func getDirectory() -> URL? {
+    var documentDirectory: URL? {
         
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentsDirectory: URL = paths[0]
@@ -31,39 +31,52 @@ final class ImageStorage {
         
         return dataPath
     }
+    
+    // MARK: - Public Methods
+    
+    func getImage(fileName: String) -> UIImage? {
+        
+        guard let documentDirectory = documentDirectory else {
+            return nil
+        }
+        let imageURL = documentDirectory.appendingPathComponent(fileName)
+        let image = UIImage(contentsOfFile: imageURL.path)
+        
+        return image
+    }
 }
 
-// MARK: - FileStorable
+// MARK: - FileStorage
 
-extension ImageStorage: FileStorable {
+extension ImageStorage: FileStorage {
     
     func saveFile(data: Data?) -> URL? {
         
         let fileName = "\(UUID().uuidString.lowercased()).jpeg"
         
         guard
-            let directory = getDirectory(),
+            let directory = documentDirectory,
             let fileData = data else {
             return nil
         }
         
-        let dataPath = directory.appendingPathComponent(fileName)
+        let fileURL = directory.appendingPathComponent(fileName)
         
-        if !FileManager.default.fileExists(atPath: dataPath.path) {
+        if !FileManager.default.fileExists(atPath: fileURL.path) {
             do {
-                try fileData.write(to: dataPath)
+                try fileData.write(to: fileURL)
             } catch {
                 print(error.localizedDescription)
                 return nil
             }
         }
         
-        return dataPath
+        return fileURL
     }
     
-    func removeDirectory() {
+    func removeAll() {
         
-        guard let directory = getDirectory() else {
+        guard let directory = documentDirectory else {
             return
         }
         

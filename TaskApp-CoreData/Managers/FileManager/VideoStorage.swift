@@ -11,9 +11,9 @@ final class VideoStorage {
     
     static let shared = VideoStorage()
     
-    // MARK: - Private Properties
+    // MARK: - Properties
     
-    private func getDirectory() -> URL? {
+    var documentDirectory: URL? {
         
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentsDirectory: URL = paths[0]
@@ -35,14 +35,14 @@ final class VideoStorage {
 
 // MARK: - FileStorable
 
-extension VideoStorage: FileStorable {
+extension VideoStorage: FileStorage {
     
     func saveFile(data: Data?) -> URL? {
         
         let fileName = "\(UUID().uuidString.lowercased()).mp4"
         
         guard
-            let directory = getDirectory(),
+            let directory = documentDirectory,
             let fileData = data else {
             return nil
         }
@@ -61,9 +61,9 @@ extension VideoStorage: FileStorable {
         return dataPath
     }
     
-    func removeDirectory() {
+    func removeAll() {
         
-        guard let directory = getDirectory() else {
+        guard let directory = documentDirectory else {
             return
         }
         

@@ -14,7 +14,7 @@ public class Task: NSManagedObject {
 
     convenience init(title: String,
                      description: String,
-                     photoAttachements: [File],
+                     images: [ImageModel],
                      context: NSManagedObjectContext) {
         self.init(context: context)
         
@@ -24,9 +24,12 @@ public class Task: NSManagedObject {
         self.status = "pending"
         self.identifier = UUID()
         
-        photoAttachements.forEach { file in
+        images.forEach { image in
+            
+            let file = File(originalFilename: image.originalURL.lastPathComponent,
+                            thumbnailFilename: image.thumbnailURL.lastPathComponent,
+                            context: context)
             addToPhotoAttachments(file)
         }
     }
-   
 }

@@ -11,7 +11,7 @@ extension FileManager {
     
     func removeAll()  {
         
-        ImageStorage.shared.removeDirectory()
-        VideoStorage.shared.removeDirectory()
+        ImageStorage.shared.removeAll()
+        VideoStorage.shared.removeAll()
     }
 }
