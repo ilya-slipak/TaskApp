@@ -47,6 +47,9 @@ final class DatabaseManager {
         return container
     }()
     
+    
+    // MARK: - Public Methods
+    
     func fetchEntities<ModelEntity: NSManagedObject>(object: ModelEntity.Type,
                                                      predicate: NSPredicate?) throws -> [ModelEntity] {
         
@@ -57,7 +60,7 @@ final class DatabaseManager {
         
         return models
     }
-
+    
     // MARK: - Core Data Saving support
 
     func saveContext () {

@@ -12,6 +12,7 @@
 		0523E07725AAF36E00D04760 /* File+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523E07325AAF36E00D04760 /* File+CoreDataProperties.swift */; };
 		0523E07825AAF36E00D04760 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523E07425AAF36E00D04760 /* Task+CoreDataClass.swift */; };
 		0523E07925AAF36E00D04760 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523E07525AAF36E00D04760 /* Task+CoreDataProperties.swift */; };
+		0526C3C925ABB31700902F57 /* TaskDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0526C3C825ABB31700902F57 /* TaskDatabaseManager.swift */; };
 		0531E78C25A8D72D00D976B5 /* MediaPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0531E78B25A8D72D00D976B5 /* MediaPickerView.swift */; };
 		0531E78F25A8D74500D976B5 /* MediaPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0531E78E25A8D74500D976B5 /* MediaPickerView.xib */; };
 		0531E79325A8D7FF00D976B5 /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0531E79125A8D7FF00D976B5 /* MediaCollectionViewCell.swift */; };
@@ -64,6 +65,7 @@
 		0523E07325AAF36E00D04760 /* File+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "File+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0523E07425AAF36E00D04760 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0523E07525AAF36E00D04760 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0526C3C825ABB31700902F57 /* TaskDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDatabaseManager.swift; sourceTree = "<group>"; };
 		0531E78B25A8D72D00D976B5 /* MediaPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPickerView.swift; sourceTree = "<group>"; };
 		0531E78E25A8D74500D976B5 /* MediaPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaPickerView.xib; sourceTree = "<group>"; };
 		0531E79125A8D7FF00D976B5 /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -81,7 +83,7 @@
 		05872B2E25A786110040FB0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05872B3125A786110040FB0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05872B3325A786110040FB0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		05872B4525A787810040FB0B /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = SOURCE_ROOT; };
+		05872B4525A787810040FB0B /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DatabaseManager.swift; path = "TaskApp-CoreData/Managers/Database/Base/DatabaseManager.swift"; sourceTree = SOURCE_ROOT; };
 		058C99F625A870870087D005 /* VideoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreviewViewController.swift; sourceTree = "<group>"; };
 		058C99F925A870950087D005 /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
 		058C99FD25A8753D0087D005 /* BasePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePickerViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0526C3C725ABB2F800902F57 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				05872B2B25A786110040FB0B /* TaskApp_CoreData.xcdatamodeld */,
+				05872B4525A787810040FB0B /* DatabaseManager.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		0531E78A25A8D70F00D976B5 /* MediaPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,8 +261,8 @@
 		05872B4125A786DA0040FB0B /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				05872B2B25A786110040FB0B /* TaskApp_CoreData.xcdatamodeld */,
-				05872B4525A787810040FB0B /* DatabaseManager.swift */,
+				0526C3C725ABB2F800902F57 /* Base */,
+				0526C3C825ABB31700902F57 /* TaskDatabaseManager.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -532,6 +543,7 @@
 				0531E78C25A8D72D00D976B5 /* MediaPickerView.swift in Sources */,
 				053C102825AAFB1E0077DEBA /* VideoStorage.swift in Sources */,
 				05DEF74D25A79F5200AE704B /* ScreenFactory.swift in Sources */,
+				0526C3C925ABB31700902F57 /* TaskDatabaseManager.swift in Sources */,
 				0536485025AB1B980084EBD4 /* TaskTableViewCell.swift in Sources */,
 				0523E07625AAF36E00D04760 /* File+CoreDataClass.swift in Sources */,
 				05F01EBC25A8C24A0037A40C /* ValidationError.swift in Sources */,

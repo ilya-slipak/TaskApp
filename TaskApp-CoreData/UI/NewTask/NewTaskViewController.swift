@@ -92,20 +92,7 @@ final class NewTaskViewController: UIViewController {
         
         return !title.isEmpty && !description.isEmpty
     }
-    
-    private func prepareTaskModel(title: String, description: String){
         
-        let context = DatabaseManager.shared.context
-        var photoAttachements: [File] = []
-//        var videoAttachements: [File] = []
-        
-        let task = Task(title: title,
-                        description: description,
-                        images: images,
-                        context: context)
-        print("New task:", task)
-    }
-    
     // MARK: - Action Methods
     
     @IBAction func createButtonAction(_ sender: CustomButton) {
@@ -115,9 +102,9 @@ final class NewTaskViewController: UIViewController {
             return
         }
         
-        prepareTaskModel(title: titleTextField.text!,
-                                         description: descriptionTextView.text)
-        DatabaseManager.shared.saveContext()
+        TaskDatabaseManager.shared.createTask(title: titleTextField.text!,
+                                              description: descriptionTextView.text,
+                                              images: images)
         navigationController?.popViewController(animated: true)
     }
 }
