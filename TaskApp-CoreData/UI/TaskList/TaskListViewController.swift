@@ -90,7 +90,7 @@ final class TaskListViewController: UIViewController {
     private func deleteTask(at indexPath: IndexPath) {
         
         let task = fetchedResultsController.object(at: indexPath)
-        DatabaseManager.shared.deleteEntity(task)
+        TaskDatabaseManager.shared.deleteTask(task)
     }
     
     // MARK: - Action Methods
@@ -155,7 +155,7 @@ extension TaskListViewController: UITableViewDelegate {
                    viewForHeaderInSection section: Int) -> UIView? {
         
         let sectionInfo = fetchedResultsController.sections?[section]
-        
+    
         let titleLabel = UILabel()
         titleLabel.backgroundColor = .black
         titleLabel.textColor = .white

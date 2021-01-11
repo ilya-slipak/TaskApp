@@ -20,4 +20,9 @@ final class TaskDatabaseManager {
                         context: context)
         DatabaseManager.shared.saveContext()
     }
+    
+    func deleteTask(_ task: Task) {
+        
+        DatabaseManager.shared.deleteEntity(task)
+    }
 }
