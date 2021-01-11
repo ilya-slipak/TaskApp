@@ -41,7 +41,8 @@ final class TaskTableViewCell: UITableViewCell {
             .thumbnailFilename
         
         if let imageName = imageFilename {
-            let image = ImageStorage.shared.getImage(fileName: imageName)
+            let imageURL = ImageStorage.shared.getFileURL(fileName: imageName)
+            let image = UIImage(contentsOfFile: imageURL.path)
             taskImageView.image = image?.resized(targetSize: taskImageView.frame.size)
         } else {
             let emptyImage = UIImage(named: "no-image")

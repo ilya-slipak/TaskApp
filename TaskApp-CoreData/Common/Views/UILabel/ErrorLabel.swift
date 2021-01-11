@@ -24,10 +24,11 @@ final class ErrorLabel: UILabel {
     }
     
     private func setup() {
-        backgroundColor = .clear
-        font = UIFont.systemFont(ofSize: 10)
-        textColor = errorTextColor
+        
         numberOfLines = 0
+        backgroundColor = .clear
+        textColor = errorTextColor
+        font = UIFont.systemFont(ofSize: 10)
     }
     
     // MARK: - Public Methods

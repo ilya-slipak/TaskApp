@@ -31,19 +31,6 @@ final class ImageStorage {
         
         return dataPath
     }
-    
-    // MARK: - Public Methods
-    
-    func getImage(fileName: String) -> UIImage? {
-        
-        guard let documentDirectory = documentDirectory else {
-            return nil
-        }
-        let imageURL = documentDirectory.appendingPathComponent(fileName)
-        let image = UIImage(contentsOfFile: imageURL.path)
-        
-        return image
-    }
 }
 
 // MARK: - FileStorage

@@ -108,9 +108,3 @@ final class NewTaskViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 }
-
-struct ImageModel {
-    
-    var originalURL: URL
-    var thumbnailURL: URL
-}

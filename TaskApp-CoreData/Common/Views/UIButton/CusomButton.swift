@@ -24,9 +24,9 @@ final class CustomButton: UIButton {
     private func setup() {
         
         tintColor = .white
-        titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         backgroundColor = #colorLiteral(red: 0.1176470588, green: 0.1176470588, blue: 0.1176470588, alpha: 1)
         layer.cornerRadius = 25
+        titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         contentEdgeInsets = UIEdgeInsets(top: 19, left: 30, bottom: 19, right: 30)
     }
 }

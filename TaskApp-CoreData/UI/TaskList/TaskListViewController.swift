@@ -39,26 +39,16 @@ final class TaskListViewController: UIViewController {
         }()
     
     // MARK: - Lifecycle Methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
         fetchTasks()
     }
-        
+    
     // MARK: - Private Methods
-    
-    private func fetchTasks() {
         
-        do {
-            try fetchedResultsController.performFetch()
-            tableView.reloadData()
-        } catch let error as NSError {
-            print("Fetching error: \(error), \(error.userInfo)")
-        }
-    }
-    
     private func setupView() {
         
         title = "Task list"
@@ -85,6 +75,22 @@ final class TaskListViewController: UIViewController {
                                          action: #selector(sortButtonAction))
         
         navigationItem.rightBarButtonItems = [filterButton, sortButton]
+    }
+    
+    private func fetchTasks() {
+        
+        do {
+            try fetchedResultsController.performFetch()
+            tableView.reloadData()
+        } catch let error as NSError {
+            print("Fetching error: \(error), \(error.userInfo)")
+        }
+    }
+    
+    private func deleteTask(at indexPath: IndexPath) {
+        
+        let task = fetchedResultsController.object(at: indexPath)
+        DatabaseManager.shared.deleteEntity(task)
     }
     
     // MARK: - Action Methods
@@ -116,27 +122,27 @@ extension TaskListViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-      return fetchedResultsController.sections?.count ?? 0
+        return fetchedResultsController.sections?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         
         guard let sectionInfo =
-          fetchedResultsController.sections?[section] else {
+                fetchedResultsController.sections?[section] else {
             return 0
         }
-
+        
         return sectionInfo.numberOfObjects
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let identifier = TaskTableViewCell.reuseIdentifier
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! TaskTableViewCell
         let task = fetchedResultsController.object(at: indexPath)
         cell.configure(with: task)
-
+        
         return cell
     }
 }
@@ -147,15 +153,25 @@ extension TaskListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
-
+        
         let sectionInfo = fetchedResultsController.sections?[section]
-
+        
         let titleLabel = UILabel()
         titleLabel.backgroundColor = .black
         titleLabel.textColor = .white
         titleLabel.text = sectionInfo?.name
-
+        
         return titleLabel
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] action, view, completionHandler in
+            
+            self?.deleteTask(at: indexPath)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 }
 

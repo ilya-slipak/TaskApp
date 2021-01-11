@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9oL-YE-qsb">
-                        <rect key="frame" x="16" y="8" width="288" height="92"/>
+                        <rect key="frame" x="16" y="8" width="288" height="113"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-image" translatesAutoresizingMaskIntoConstraints="NO" id="yav-OA-ehj">
-                                <rect key="frame" x="8" y="6" width="80" height="80"/>
+                                <rect key="frame" x="8" y="8" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="R6g-Hd-xN1"/>
                                     <constraint firstAttribute="width" constant="80" id="y1l-Zl-I6l"/>
@@ -48,13 +48,12 @@
                         <color key="backgroundColor" name="AppGrayColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4s1-VU-HqS" secondAttribute="bottom" constant="8" id="4ar-Fv-5g1"/>
-                            <constraint firstItem="yav-OA-ehj" firstAttribute="centerY" secondItem="9oL-YE-qsb" secondAttribute="centerY" id="5zC-gc-89c"/>
                             <constraint firstItem="yav-OA-ehj" firstAttribute="leading" secondItem="9oL-YE-qsb" secondAttribute="leading" constant="8" id="J8K-3y-SLt"/>
                             <constraint firstItem="4s1-VU-HqS" firstAttribute="top" secondItem="9oL-YE-qsb" secondAttribute="top" constant="8" id="JP8-TH-AJv"/>
-                            <constraint firstAttribute="bottom" secondItem="yav-OA-ehj" secondAttribute="bottom" constant="6" id="Kp1-bN-eKr"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yav-OA-ehj" secondAttribute="bottom" constant="8" id="Kp1-bN-eKr"/>
                             <constraint firstAttribute="trailing" secondItem="4s1-VU-HqS" secondAttribute="trailing" constant="8" id="QGK-nR-84M"/>
                             <constraint firstItem="4s1-VU-HqS" firstAttribute="leading" secondItem="yav-OA-ehj" secondAttribute="trailing" constant="8" id="Sin-aw-0MH"/>
-                            <constraint firstItem="yav-OA-ehj" firstAttribute="top" secondItem="9oL-YE-qsb" secondAttribute="top" constant="6" id="uWd-89-GZj"/>
+                            <constraint firstItem="yav-OA-ehj" firstAttribute="top" secondItem="9oL-YE-qsb" secondAttribute="top" constant="8" id="uWd-89-GZj"/>
                         </constraints>
                     </view>
                 </subviews>

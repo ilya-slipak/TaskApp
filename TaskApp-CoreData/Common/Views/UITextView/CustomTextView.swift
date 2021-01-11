@@ -19,17 +19,17 @@ final class CustomTextView: UITextView {
         
     func setupPlaceholder(text: String) {
         
+        self.text = text
         placeholder = text
         textColor = UIColor.white
-        self.text = text
     }
     
     private func setup() {
         
         textColor = .white
-        font = UIFont.systemFont(ofSize: 14)
         backgroundColor = #colorLiteral(red: 0.1176470588, green: 0.1176470588, blue: 0.1176470588, alpha: 1)
         layer.cornerRadius = 8
+        font = UIFont.systemFont(ofSize: 14)
     }
     
     private func updateView(isBecomeFisrtResponder: Bool) {

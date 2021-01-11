@@ -47,7 +47,6 @@ final class DatabaseManager {
         return container
     }()
     
-    
     // MARK: - Public Methods
     
     func fetchEntities<ModelEntity: NSManagedObject>(object: ModelEntity.Type,
@@ -59,6 +58,19 @@ final class DatabaseManager {
         let models = try context.fetch(fetchRequest)
         
         return models
+    }
+    
+    func deleteEntity(_ entity: NSManagedObject) {
+        
+        deleteEntities([entity])
+    }
+    
+    func deleteEntities(_ entities: [NSManagedObject]) {
+        
+        entities.forEach { entity in
+            context.delete(entity)
+        }
+        saveContext()
     }
     
     // MARK: - Core Data Saving support

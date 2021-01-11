@@ -34,16 +34,8 @@ final class MediaCollectionViewCell: UICollectionViewCell {
     func configure(with imageModel: ImageModel) {
         
         let fileName = imageModel.thumbnailURL.lastPathComponent
-        let image = ImageStorage.shared.getImage(fileName: fileName)
+        let imageURL = ImageStorage.shared.getFileURL(fileName: fileName)
+        let image = UIImage(contentsOfFile: imageURL.path)
         imageView.image = image?.resized(targetSize: frame.size)
-//        do {
-//            let image = try UIGraphicsRenderer.renderImageAt(
-//                path: imageModel.thumbnailURL.path,
-//                size: frame.size)
-//            imageView.image = image
-//        } catch {
-//            print(error)
-//        }
-
     }
 }

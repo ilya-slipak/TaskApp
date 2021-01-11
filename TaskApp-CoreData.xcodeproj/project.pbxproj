@@ -22,6 +22,7 @@
 		053C102225AAFB090077DEBA /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C102125AAFB090077DEBA /* FileStorage.swift */; };
 		053C102525AAFB140077DEBA /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C102425AAFB140077DEBA /* ImageStorage.swift */; };
 		053C102825AAFB1E0077DEBA /* VideoStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C102725AAFB1E0077DEBA /* VideoStorage.swift */; };
+		0580285325ACD4F4006D43F3 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580285225ACD4F4006D43F3 /* ImageModel.swift */; };
 		05872B2325A786100040FB0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05872B2225A786100040FB0B /* AppDelegate.swift */; };
 		05872B2725A786100040FB0B /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05872B2625A786100040FB0B /* TaskListViewController.swift */; };
 		05872B2A25A786110040FB0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05872B2825A786110040FB0B /* Main.storyboard */; };
@@ -75,6 +76,7 @@
 		053C102125AAFB090077DEBA /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
 		053C102425AAFB140077DEBA /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
 		053C102725AAFB1E0077DEBA /* VideoStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStorage.swift; sourceTree = "<group>"; };
+		0580285225ACD4F4006D43F3 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		05872B1F25A786100040FB0B /* TaskApp-CoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TaskApp-CoreData.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05872B2225A786100040FB0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05872B2625A786100040FB0B /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				05D092AC25A9112B000B5B52 /* CoreData */,
+				0580285225ACD4F4006D43F3 /* ImageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				05DEF74625A79EEC00AE704B /* UIStoryboard+MakeController.swift in Sources */,
 				0523E07725AAF36E00D04760 /* File+CoreDataProperties.swift in Sources */,
 				05BB6F7925A78899004B38E0 /* Theme.swift in Sources */,
+				0580285325ACD4F4006D43F3 /* ImageModel.swift in Sources */,
 				05EC3B1F25A8D21A00A1FE90 /* CustomTextField.swift in Sources */,
 				05D092A725A8F9CA000B5B52 /* ImagePicker.swift in Sources */,
 				058C99FE25A8753D0087D005 /* BasePickerViewController.swift in Sources */,

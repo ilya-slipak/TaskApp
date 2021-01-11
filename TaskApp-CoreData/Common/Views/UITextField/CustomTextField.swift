@@ -30,8 +30,8 @@ final class CustomTextField: UITextField {
     private func setup() {
         
         textColor = .white
-        font = UIFont.systemFont(ofSize: 14)
         backgroundColor = #colorLiteral(red: 0.1176470588, green: 0.1176470588, blue: 0.1176470588, alpha: 1)
+        font = UIFont.systemFont(ofSize: 14)
         setupPlaceholder()
     }
 

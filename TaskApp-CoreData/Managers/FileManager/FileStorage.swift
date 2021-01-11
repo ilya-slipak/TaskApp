@@ -20,6 +20,16 @@ protocol FileStorage {
 
 extension FileStorage {
     
+    func getFileURL(fileName: String) -> URL {
+        
+        guard let documentDirectory = documentDirectory else {
+            return URL(fileURLWithPath: "")
+        }
+        let fileURL = documentDirectory.appendingPathComponent(fileName)
+        
+        return fileURL
+    }
+    
     func deleteFile(_ path: String) {
         
         let isExist = checkPath(path)
