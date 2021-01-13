@@ -8,22 +8,46 @@
 import UIKit
 
 final class PhotoPreviewViewController: UIViewController {
+     
+    // MARK: - IBOutlet Properties
+    
+    @IBOutlet private weak var closeButton: UIButton!
+    @IBOutlet private weak var imageView: UIImageView!
+    
+    // MARK: - Private Properties
+    
+    private var mediaModel: MediaModel!
+    
+    // MARK: - Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Setup Methods
+    
+    func setup(with mediaModel: MediaModel) {
+        
+        modalPresentationStyle = .overFullScreen
+        self.mediaModel = mediaModel
     }
-    */
-
+    
+    // MARK: - Private Methods
+    
+    private func setupView() {
+        
+        let fileName = mediaModel.originalFilename
+        let imageURL = ImageStorage.shared.getFileURL(fileName: fileName)
+        let image = UIImage(contentsOfFile: imageURL.path)
+        imageView.image = image
+    }
+    
+    // MARK: - Action Methods
+    
+    @IBAction func closeButtonAction(_ sender: UIButton) {
+        
+        dismiss(animated: true)
+    }
 }

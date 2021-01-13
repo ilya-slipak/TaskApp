@@ -9,7 +9,7 @@ import UIKit
 import Photos
 import AVFoundation
 
-final class ImagePicker: NSObject {
+final class MediaPicker: NSObject {
     
     // MARK: - Typealias
     
@@ -42,22 +42,7 @@ final class ImagePicker: NSObject {
         imagePicker.sourceType = sourceType
         
         switch sourceType {
-        case .camera:
-            
-            let status = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
-            
-            guard status != .restricted && status != .denied  else {
-//                throw ErrorType.denied(errorMessage: NSLocalizedString("DISABLED_CAMERA_ACCESS_MESSAGE", comment: ""))
-                print("DISABLED_CAMERA_ACCESS_MESSAGE")
-                return
-            }
-            
-            imagePicker.showsCameraControls = true
-            imagePicker.cameraCaptureMode = .photo
-            imagePicker.cameraDevice = .rear
-            
-            viewController.present(imagePicker, animated: true, completion: nil)
-            
+        
         case .photoLibrary, .savedPhotosAlbum:
             
             switch PHPhotoLibrary.authorizationStatus() {
@@ -73,8 +58,7 @@ final class ImagePicker: NSObject {
                     }
                 }
             case .denied, .restricted:
-//                throw ErrorType.denied(errorMessage: NSLocalizedString("DISABLED_CAMERA_ACCESS_MESSAGE", comment: ""))
-            print("DISABLED_CAMERA_ACCESS_MESSAGE")
+                print("Permission has been denied")
             @unknown default:
                 fatalError("Please check new authorization status and setup proper flow for him")
             }
@@ -86,7 +70,7 @@ final class ImagePicker: NSObject {
 
  // MARK: - UIImagePickerControllerDelegate
 
-extension ImagePicker: UIImagePickerControllerDelegate {
+extension MediaPicker: UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -107,13 +91,13 @@ extension ImagePicker: UIImagePickerControllerDelegate {
 
 // MARK: - UINavigationControllerDelegate
 
-extension ImagePicker: UINavigationControllerDelegate { 
+extension MediaPicker: UINavigationControllerDelegate { 
 
 }
 
 // MARK: - PickerType
 
-extension ImagePicker {
+extension MediaPicker {
     
     enum PickerType {
         
@@ -132,7 +116,9 @@ extension ImagePicker {
     }
 }
 
-extension ImagePicker {
+// MARK: - Result
+
+extension MediaPicker {
     
     enum Result {
         case success(originalURL: URL?, thumbnailURL: URL?)

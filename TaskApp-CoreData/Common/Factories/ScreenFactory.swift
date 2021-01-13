@@ -17,10 +17,11 @@ enum ScreenFactory {
         return controller
     }
     
-    static func makeTaskDetailScreen() -> TaskDetailViewController {
+    static func makeTaskDetailScreen(with task: Task) -> TaskDetailViewController {
         
         let controller =  UIStoryboard
             .makeController(name: "Main", identifier: "TaskDetailViewController") as! TaskDetailViewController
+        controller.setup(with: task)
         
         return controller
     }
@@ -59,10 +60,11 @@ enum ScreenFactory {
         return controller
     }
     
-    static func makePhotoPreviewScreen() -> PhotoPreviewViewController {
+    static func makePhotoPreviewScreen(with mediaModel: MediaModel) -> PhotoPreviewViewController {
         
         let controller =  UIStoryboard
             .makeController(name: "Main", identifier: "PhotoPreviewViewController") as! PhotoPreviewViewController
+        controller.setup(with: mediaModel)
         
         return controller
     }

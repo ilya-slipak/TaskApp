@@ -27,7 +27,7 @@
                                     <action selector="newTaskButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U9C-MD-FnJ"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9EH-re-EY0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9EH-re-EY0">
                                 <rect key="frame" x="0.0" y="44" width="414" height="750"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -57,21 +57,6 @@
             </objects>
             <point key="canvasLocation" x="122" y="94"/>
         </scene>
-        <!--Task Detail View Controller-->
-        <scene sceneID="LTV-tb-tSN">
-            <objects>
-                <viewController storyboardIdentifier="TaskDetailViewController" id="A9s-t9-rr6" customClass="TaskDetailViewController" customModule="TaskApp_CoreData" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="k8l-8p-xdr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="R40-5c-kqi"/>
-                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ecl-sf-CyG" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="835" y="94"/>
-        </scene>
         <!--New Task View Controller-->
         <scene sceneID="K2G-yO-Jha">
             <objects>
@@ -81,7 +66,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pLr-VG-Maw">
-                                <rect key="frame" x="20" y="74" width="374" height="370"/>
+                                <rect key="frame" x="20" y="74" width="374" height="250"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="YCn-BJ-5wx">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -126,8 +111,8 @@
                                         <rect key="frame" x="0.0" y="146" width="374" height="104"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="374" placeholderIntrinsicHeight="104" translatesAutoresizingMaskIntoConstraints="NO" id="mpP-7m-at3" customClass="MediaPickerView" customModule="TaskApp_CoreData" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="266" width="374" height="104"/>
+                                    <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="374" placeholderIntrinsicHeight="104" translatesAutoresizingMaskIntoConstraints="NO" id="mpP-7m-at3" customClass="MediaPickerView" customModule="TaskApp_CoreData" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="250" width="374" height="0.0"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -288,9 +273,52 @@
                     <view key="view" contentMode="scaleToFill" id="Kp8-Xe-T3t">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XlM-2h-NXW">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MwL-kD-zzn">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                <color key="backgroundColor" name="AppGrayColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Nvd-AY-GgJ"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liX-Ah-dDB">
+                                <rect key="frame" x="8" y="16" width="44" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="QpJ-ni-gLC"/>
+                                    <constraint firstAttribute="height" constant="44" id="Zs2-hD-WHu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButtonAction:" destination="FHq-ah-ikU" eventType="touchUpInside" id="Qr1-rw-kIs"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="BK1-9X-j7u"/>
-                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <color key="backgroundColor" name="AppGrayColor"/>
+                        <constraints>
+                            <constraint firstItem="liX-Ah-dDB" firstAttribute="centerY" secondItem="MwL-kD-zzn" secondAttribute="centerY" constant="8" id="1Ay-qQ-OOL"/>
+                            <constraint firstItem="BK1-9X-j7u" firstAttribute="trailing" secondItem="XlM-2h-NXW" secondAttribute="trailing" id="95a-IE-0lR"/>
+                            <constraint firstItem="MwL-kD-zzn" firstAttribute="leading" secondItem="BK1-9X-j7u" secondAttribute="leading" id="9oR-oR-tKC"/>
+                            <constraint firstItem="XlM-2h-NXW" firstAttribute="leading" secondItem="BK1-9X-j7u" secondAttribute="leading" id="GCj-Gp-JSW"/>
+                            <constraint firstAttribute="bottom" secondItem="XlM-2h-NXW" secondAttribute="bottom" id="Img-ri-JoM"/>
+                            <constraint firstItem="BK1-9X-j7u" firstAttribute="trailing" secondItem="MwL-kD-zzn" secondAttribute="trailing" id="dKw-Oe-rp8"/>
+                            <constraint firstItem="liX-Ah-dDB" firstAttribute="leading" secondItem="BK1-9X-j7u" secondAttribute="leading" constant="8" id="ikS-cP-URf"/>
+                            <constraint firstItem="XlM-2h-NXW" firstAttribute="top" secondItem="Kp8-Xe-T3t" secondAttribute="top" id="kfm-fu-EuU"/>
+                            <constraint firstItem="MwL-kD-zzn" firstAttribute="top" secondItem="Kp8-Xe-T3t" secondAttribute="top" id="y2H-rQ-UnP"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="closeButton" destination="liX-Ah-dDB" id="Jed-dM-nCr"/>
+                        <outlet property="imageView" destination="XlM-2h-NXW" id="RuK-it-8Ee"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B0Q-dh-tJI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -408,6 +436,88 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrg-6Q-cPu" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-542" y="-575"/>
+        </scene>
+        <!--Task Detail View Controller-->
+        <scene sceneID="km0-pN-yXd">
+            <objects>
+                <viewController storyboardIdentifier="TaskDetailViewController" modalPresentationStyle="overFullScreen" id="ZMD-dT-eLS" customClass="TaskDetailViewController" customModule="TaskApp_CoreData" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zRR-MR-D1H">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Dw2-LA-8OJ">
+                                <rect key="frame" x="20" y="74" width="374" height="250"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="ZW0-DL-j3w">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <subviews>
+                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dvJ-k4-w7a" customClass="CustomTextField" customModule="TaskApp_CoreData" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                                <color key="backgroundColor" name="AppGrayColor"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="uEH-hP-QPA">
+                                        <rect key="frame" x="0.0" y="50" width="374" height="80"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8lf-CJ-bUU" customClass="CustomTextView" customModule="TaskApp_CoreData" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
+                                                <color key="backgroundColor" name="AppGrayColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="L92-sD-DO9"/>
+                                                </constraints>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                    </stackView>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="374" placeholderIntrinsicHeight="104" translatesAutoresizingMaskIntoConstraints="NO" id="90Z-aW-ySt" customClass="MediaPickerView" customModule="TaskApp_CoreData" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="146" width="374" height="104"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="374" placeholderIntrinsicHeight="104" translatesAutoresizingMaskIntoConstraints="NO" id="iuV-qw-XIb" customClass="MediaPickerView" customModule="TaskApp_CoreData" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="250" width="374" height="0.0"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYC-dJ-Eg1" customClass="CustomButton" customModule="TaskApp_CoreData" customModuleProvider="target">
+                                <rect key="frame" x="103" y="802" width="208" height="30"/>
+                                <state key="normal" title="Create">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeTaskStatusAction:" destination="ZMD-dT-eLS" eventType="touchUpInside" id="86R-tw-JAB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Y7K-xd-y87"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Dw2-LA-8OJ" firstAttribute="leading" secondItem="Y7K-xd-y87" secondAttribute="leading" constant="20" id="6jn-7e-pEz"/>
+                            <constraint firstItem="Dw2-LA-8OJ" firstAttribute="top" secondItem="Y7K-xd-y87" secondAttribute="top" constant="30" id="NWi-ei-KGT"/>
+                            <constraint firstItem="WYC-dJ-Eg1" firstAttribute="width" secondItem="zRR-MR-D1H" secondAttribute="width" multiplier="0.5" constant="1" id="QVj-P2-p5k"/>
+                            <constraint firstItem="WYC-dJ-Eg1" firstAttribute="centerX" secondItem="zRR-MR-D1H" secondAttribute="centerX" id="YJM-bP-l4K"/>
+                            <constraint firstItem="Y7K-xd-y87" firstAttribute="trailing" secondItem="Dw2-LA-8OJ" secondAttribute="trailing" constant="20" id="hAW-J4-J8u"/>
+                            <constraint firstItem="WYC-dJ-Eg1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Dw2-LA-8OJ" secondAttribute="bottom" constant="20" id="lCb-b5-6qA"/>
+                            <constraint firstItem="Y7K-xd-y87" firstAttribute="bottom" secondItem="WYC-dJ-Eg1" secondAttribute="bottom" constant="30" id="y7C-4F-EnM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="changeTaskStatusButton" destination="WYC-dJ-Eg1" id="SOU-uJ-Xjn"/>
+                        <outlet property="descriptionTextView" destination="8lf-CJ-bUU" id="Cnu-4i-taj"/>
+                        <outlet property="photoMediaPicker" destination="90Z-aW-ySt" id="qFD-U5-1JX"/>
+                        <outlet property="titleTextField" destination="dvJ-k4-w7a" id="qwq-qP-jQp"/>
+                        <outlet property="videoMediaPicker" destination="iuV-qw-XIb" id="bOB-Fp-Ns9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t7C-ag-P7G" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="835" y="94"/>
         </scene>
     </scenes>
     <resources>

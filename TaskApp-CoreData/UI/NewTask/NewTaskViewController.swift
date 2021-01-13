@@ -21,7 +21,7 @@ final class NewTaskViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private let imagePicker = ImagePicker(pickerType: .image, compressionQuality: 0.1)
+    private let imagePicker = MediaPicker(pickerType: .image, compressionQuality: 0.1)
     private var images: [ImageModel] = []
     
     // MARK: - Lifecycle Methods
@@ -39,8 +39,8 @@ final class NewTaskViewController: UIViewController {
         title = "New task"
         titleTextField.placeholder = "Enter task name"
         descriptionTextView.setupPlaceholder(text: "Description")
-        photoMediaPicker.setup(with: images, type: .image)
-        videoMediaPicker.setup(with: [], type: .video)
+        photoMediaPicker.setup(with: images, type: .image, inputFlow: .add)
+        videoMediaPicker.setup(with: [], type: .video, inputFlow: .add)
         
         photoMediaPicker.onAdd = { [weak self] in
             
@@ -61,10 +61,14 @@ final class NewTaskViewController: UIViewController {
                     
                     let imageModel = ImageModel(originalURL: originalURL, thumbnailURL: compressedURL)
                     self.images.append(imageModel)
-                    self.photoMediaPicker.setup(with: self.images, type: .image)
+                    self.photoMediaPicker.updateDataSource(self.images)
                 }
             }
-            
+        }
+        
+        photoMediaPicker.onSelectCell = { [weak self] mediaModel in
+            let controller = ScreenFactory.makePhotoPreviewScreen(with: mediaModel)
+            self?.present(controller, animated: true)
         }
     }
     
@@ -97,7 +101,6 @@ final class NewTaskViewController: UIViewController {
     
     @IBAction func createButtonAction(_ sender: CustomButton) {
         
-        //TODO: createButtonAction
         guard validateData() else {
             return
         }

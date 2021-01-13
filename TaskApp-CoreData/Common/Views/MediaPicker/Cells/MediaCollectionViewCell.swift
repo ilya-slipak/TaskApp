@@ -31,9 +31,9 @@ final class MediaCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Setup Methods
     
-    func configure(with imageModel: ImageModel) {
+    func configure(with mediaModel: MediaModel) {
         
-        let fileName = imageModel.thumbnailURL.lastPathComponent
+        let fileName = mediaModel.thumbnailFilename
         let imageURL = ImageStorage.shared.getFileURL(fileName: fileName)
         let image = UIImage(contentsOfFile: imageURL.path)
         imageView.image = image?.resized(targetSize: frame.size)

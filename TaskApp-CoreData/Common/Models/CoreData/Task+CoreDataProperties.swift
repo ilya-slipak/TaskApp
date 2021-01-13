@@ -19,7 +19,7 @@ extension Task {
     @NSManaged public var createdAt: Date?
     @NSManaged public var identifier: UUID?
     @NSManaged public var info: String?
-    @NSManaged public var status: String?
+    @NSManaged public var status: Int16
     @NSManaged public var title: String?
     @NSManaged public var photoAttachments: NSSet?
 
@@ -42,6 +42,37 @@ extension Task {
 
 }
 
+// MARK: - Identifiable
+
 extension Task : Identifiable {
 
+}
+
+// MARK: - Status
+
+extension Task {
+    
+    enum Status: Int16 {
+        
+        case pending
+        case accepted
+        case completed
+        
+        var title: String {
+            switch self {
+            
+            case .pending:
+                return "Pending"
+            case .accepted:
+                return "Accepted"
+            case.completed:
+                return "Completed"
+            }
+        }
+    }
+    
+    var taskStatus: Status? {
+        
+        return Status(rawValue: status)
+    }
 }

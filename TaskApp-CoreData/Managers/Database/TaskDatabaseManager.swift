@@ -20,6 +20,12 @@ final class TaskDatabaseManager {
                         context: context)
         DatabaseManager.shared.saveContext()
     }
+  
+    func updateTaskStatus(_ task: Task, newStatus: Task.Status) {
+        
+        task.status = newStatus.rawValue
+        DatabaseManager.shared.saveContext()
+    }
     
     func deleteTask(_ task: Task) {
         

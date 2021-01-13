@@ -4,14 +4,14 @@
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="identifier" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="originalFilename" attributeType="String"/>
-        <attribute name="thumbnailFilename" optional="YES" attributeType="String"/>
+        <attribute name="thumbnailFilename" attributeType="String"/>
         <relationship name="photoRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="photoAttachments" inverseEntity="Task"/>
     </entity>
     <entity name="Task" representedClassName="Task" syncable="YES">
         <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="identifier" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="info" attributeType="String"/>
-        <attribute name="status" attributeType="String"/>
+        <attribute name="status" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" attributeType="String"/>
         <relationship name="photoAttachments" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="File" inverseName="photoRelationship" inverseEntity="File"/>
     </entity>

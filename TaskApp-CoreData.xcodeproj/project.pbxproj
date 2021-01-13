@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0505CA5725AECB4C004BEBE8 /* MediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0505CA5625AECB4C004BEBE8 /* MediaModel.swift */; };
 		050BEE5625A8C5B800603AC9 /* CustomTextView+ValidateText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050BEE5525A8C5B800603AC9 /* CustomTextView+ValidateText.swift */; };
 		0523E07625AAF36E00D04760 /* File+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523E07225AAF36E00D04760 /* File+CoreDataClass.swift */; };
 		0523E07725AAF36E00D04760 /* File+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523E07325AAF36E00D04760 /* File+CoreDataProperties.swift */; };
@@ -41,7 +42,7 @@
 		05BB6F7925A78899004B38E0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BB6F7825A78899004B38E0 /* Theme.swift */; };
 		05C1A21525A8E574004C8038 /* AddMediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C1A21325A8E574004C8038 /* AddMediaCollectionViewCell.swift */; };
 		05C1A21625A8E574004C8038 /* AddMediaCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C1A21425A8E574004C8038 /* AddMediaCollectionViewCell.xib */; };
-		05D092A725A8F9CA000B5B52 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D092A625A8F9CA000B5B52 /* ImagePicker.swift */; };
+		05D092A725A8F9CA000B5B52 /* MediaPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D092A625A8F9CA000B5B52 /* MediaPicker.swift */; };
 		05D092AA25A9018C000B5B52 /* UIImage+ResizedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D092A925A9018C000B5B52 /* UIImage+ResizedImage.swift */; };
 		05DEF74625A79EEC00AE704B /* UIStoryboard+MakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF74525A79EEC00AE704B /* UIStoryboard+MakeController.swift */; };
 		05DEF74925A79F1100AE704B /* UIView+MakeFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF74825A79F1100AE704B /* UIView+MakeFromNib.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0505CA5625AECB4C004BEBE8 /* MediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModel.swift; sourceTree = "<group>"; };
 		050BEE5525A8C5B800603AC9 /* CustomTextView+ValidateText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTextView+ValidateText.swift"; sourceTree = "<group>"; };
 		0523E07225AAF36E00D04760 /* File+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "File+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0523E07325AAF36E00D04760 /* File+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "File+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -99,7 +101,7 @@
 		05BB6F7825A78899004B38E0 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		05C1A21325A8E574004C8038 /* AddMediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMediaCollectionViewCell.swift; sourceTree = "<group>"; };
 		05C1A21425A8E574004C8038 /* AddMediaCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMediaCollectionViewCell.xib; sourceTree = "<group>"; };
-		05D092A625A8F9CA000B5B52 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		05D092A625A8F9CA000B5B52 /* MediaPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPicker.swift; sourceTree = "<group>"; };
 		05D092A925A9018C000B5B52 /* UIImage+ResizedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ResizedImage.swift"; sourceTree = "<group>"; };
 		05DEF74525A79EEC00AE704B /* UIStoryboard+MakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+MakeController.swift"; sourceTree = "<group>"; };
 		05DEF74825A79F1100AE704B /* UIView+MakeFromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+MakeFromNib.swift"; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				0580285225ACD4F4006D43F3 /* ImageModel.swift */,
 				0580285525ACE5B5006D43F3 /* TaskSortDataSource.swift */,
 				0580285825ACE5BE006D43F3 /* TaskFilterDataSource.swift */,
+				0505CA5625AECB4C004BEBE8 /* MediaModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -459,7 +462,7 @@
 				05F01EBB25A8C24A0037A40C /* ValidationError.swift */,
 				05A68D2425A8C631004FBE18 /* ValidationConvertible.swift */,
 				05A68D2725A8C656004FBE18 /* ValidationType.swift */,
-				05D092A625A8F9CA000B5B52 /* ImagePicker.swift */,
+				05D092A625A8F9CA000B5B52 /* MediaPicker.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 			files = (
 				058C99FA25A870950087D005 /* PhotoPreviewViewController.swift in Sources */,
 				058C99F725A870870087D005 /* VideoPreviewViewController.swift in Sources */,
+				0505CA5725AECB4C004BEBE8 /* MediaModel.swift in Sources */,
 				05872B2725A786100040FB0B /* TaskListViewController.swift in Sources */,
 				05F01EBF25A8C2E20037A40C /* UITextField+ValidateText.swift in Sources */,
 				05C1A21525A8E574004C8038 /* AddMediaCollectionViewCell.swift in Sources */,
@@ -565,7 +569,7 @@
 				05BB6F7925A78899004B38E0 /* Theme.swift in Sources */,
 				0580285325ACD4F4006D43F3 /* ImageModel.swift in Sources */,
 				05EC3B1F25A8D21A00A1FE90 /* CustomTextField.swift in Sources */,
-				05D092A725A8F9CA000B5B52 /* ImagePicker.swift in Sources */,
+				05D092A725A8F9CA000B5B52 /* MediaPicker.swift in Sources */,
 				058C99FE25A8753D0087D005 /* BasePickerViewController.swift in Sources */,
 				05ECB8CC25AA3DE000504FDA /* FileManager.swift in Sources */,
 				05A68D2825A8C656004FBE18 /* ValidationType.swift in Sources */,

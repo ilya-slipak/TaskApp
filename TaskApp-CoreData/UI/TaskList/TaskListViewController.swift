@@ -46,7 +46,7 @@ final class TaskListViewController: UIViewController {
     }
     
     // MARK: - Private Methods
-        
+    
     private func setupView() {
         
         title = "Task list"
@@ -93,6 +93,12 @@ final class TaskListViewController: UIViewController {
         
         let task = fetchedResultsController.object(at: indexPath)
         TaskDatabaseManager.shared.deleteTask(task)
+    }
+    
+    private func showTaskDetail(with task: Task) {
+        
+        let controller = ScreenFactory.makeTaskDetailScreen(with: task)
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     // MARK: - Action Methods
@@ -164,14 +170,20 @@ extension TaskListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
         
-        let sectionInfo = fetchedResultsController.sections?[section]
-    
+        let sectionInfo = Int16(fetchedResultsController.sections?[section].name ?? "") ?? 0
+        let section = Task.Status(rawValue: sectionInfo)
         let titleLabel = UILabel()
         titleLabel.backgroundColor = .black
         titleLabel.textColor = .white
-        titleLabel.text = sectionInfo?.name
+        titleLabel.text = section?.title
         
         return titleLabel
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let task = fetchedResultsController.object(at: indexPath)
+        showTaskDetail(with: task)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

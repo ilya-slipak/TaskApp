@@ -12,7 +12,7 @@ final class MediaPickerView: UIView {
     // MARK: - Closure Properties
     
     var onAdd: (() -> Void)?
-    var onSelect: ((_ imageModel: ImageModel) -> Void)?
+    var onSelectCell: ((_ mediaModel: MediaModel) -> Void)?
     
     // MARK: - IBOutlet Properties
 
@@ -21,7 +21,12 @@ final class MediaPickerView: UIView {
     
     // MARK: - Private Properties
     
-    private var dataSource: [ImageModel] = []
+    private var flow: Flow = .add
+    private var dataSource: [MediaModel] = [] {
+        didSet {
+            isHidden = dataSource.isEmpty && flow != .add
+        }
+    }
     
     // MARK: - Lifecycle Methods
     
@@ -41,9 +46,15 @@ final class MediaPickerView: UIView {
     
     // MARK: - Setup Methods
     
-    func setup(with inputDataSource: [ImageModel], type: MediaType) {
+    func setup(with inputDataSource: [MediaModel], type: MediaType, inputFlow: Flow) {
         
         headerLabel.text = type.title
+        flow = inputFlow
+        updateDataSource(inputDataSource)
+    }
+    
+    func updateDataSource(_ inputDataSource: [MediaModel]) {
+        
         dataSource = inputDataSource
         collectionView.reloadData()
     }
@@ -54,7 +65,12 @@ final class MediaPickerView: UIView {
 extension MediaPickerView: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource.count + 1
+        
+        if flow == .add {
+            return dataSource.count + 1
+        } else {
+            return dataSource.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -84,7 +100,7 @@ extension MediaPickerView: UICollectionViewDataSource, UICollectionViewDelegate 
         }
         
         let data = dataSource[indexPath.row]
-        onSelect?(data)
+        onSelectCell?(data)
     }
 }
 
@@ -115,5 +131,16 @@ extension MediaPickerView {
                 return "Videos"
             }
         }
+    }
+}
+
+// MARK: - Flow
+
+extension MediaPickerView {
+    
+    enum Flow {
+        case add
+        case preview
+        case edit
     }
 }

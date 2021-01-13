@@ -21,7 +21,8 @@ public class Task: NSManagedObject {
         self.title = title
         self.info = description
         self.createdAt = Date()
-        self.status = "pending"
+        let taskStatus: Status = .pending
+        self.status = taskStatus.rawValue
         self.identifier = UUID()
         
         images.forEach { image in

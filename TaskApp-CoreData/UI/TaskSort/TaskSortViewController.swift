@@ -8,7 +8,7 @@
 import UIKit
 
 final class TaskSortViewController: BasePickerViewController {
-
+    
     // MARK: - Properties
     
     private var dataSource = TaskSortDataSource.allCases
@@ -19,10 +19,10 @@ final class TaskSortViewController: BasePickerViewController {
     var onSelectSortRule:((_ sortRule: TaskSortDataSource) -> Void)?
     
     // MARK: - Lifecycle Methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupPickerView()
         setupCallbacks()
     }
@@ -80,19 +80,19 @@ extension TaskSortViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         
         return dataSource.count
     }
-        
+    
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
         let title = dataSource[row].title
         
         guard let pickerLabel = view as? UILabel else {
-
+            
             let label = UILabel()
             label.font = UIFont.systemFont(ofSize: 15)
             label.textAlignment = .center
             label.textColor = UIColor.white
             label.text = title
-
+            
             return label
         }
         
@@ -100,7 +100,7 @@ extension TaskSortViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         
         return pickerLabel
     }
-        
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         let newSortRule = dataSource[row]
