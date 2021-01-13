@@ -9,9 +9,14 @@ import UIKit
 
 final class TaskFilterViewController: BasePickerViewController {
     
-    // MARK: - Properties
+    // MARK: - Private Properties
     
-    var dataSource: [String] = ["All", "Pending", "Active", "Completed"]
+    private var dataSource = TaskFilterDataSource.allCases
+    private var selectedFilterRule: TaskFilterDataSource = .all
+    
+    // MARK: - Closure Properties
+    
+    var onSelectFilterRule:((_ sortRule: TaskFilterDataSource) -> Void)?
     
     // MARK: - Lifecycle Methods
 
@@ -22,16 +27,42 @@ final class TaskFilterViewController: BasePickerViewController {
         setupCallbacks()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        performDefaultSelection()
+    }
+    
+    // MARK: - Public Methods
+    
+    func setup(selectedFilterRule: TaskFilterDataSource) {
+        
+        self.selectedFilterRule = selectedFilterRule
+    }
+    
+    // MARK: - Private Methods
+    
     private func setupPickerView() {
         
         pickerView.dataSource = self
         pickerView.delegate = self
     }
     
+    private func performDefaultSelection() {
+        
+        guard let selectedIndex = dataSource.firstIndex(of: selectedFilterRule) else {
+            return
+        }
+        pickerView.selectRow(selectedIndex, inComponent: 0, animated: true)
+    }
+    
     private func setupCallbacks() {
         
         onApply = { [weak self] in
-            //TODO: Apply action
+            guard let self = self else {
+                return
+            }
+            self.onSelectFilterRule?(self.selectedFilterRule)
         }
     }
 }
@@ -52,7 +83,7 @@ extension TaskFilterViewController: UIPickerViewDataSource, UIPickerViewDelegate
         
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
-        let title = dataSource[row]
+        let title = dataSource[row].title
         
         guard let pickerLabel = view as? UILabel else {
 
@@ -72,8 +103,7 @@ extension TaskFilterViewController: UIPickerViewDataSource, UIPickerViewDelegate
         
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        //TODO: didSelectRow
-//        viewModel.selectedPickerValue = viewModel.dataSource[row]
-//        setLabelComponentColor(for: row, in: component)
+        let newFilterRule = dataSource[row]
+        selectedFilterRule = newFilterRule
     }
 }

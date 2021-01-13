@@ -41,18 +41,20 @@ enum ScreenFactory {
         return controller
     }
     
-    static func makeTaskFilterScreen() -> TaskFilterViewController {
+    static func makeTaskFilterScreen(selectedFilterRule: TaskFilterDataSource) -> TaskFilterViewController {
         
         let controller =  UIStoryboard
             .makeController(name: "Main", identifier: "TaskFilterViewController") as! TaskFilterViewController
+        controller.setup(selectedFilterRule: selectedFilterRule)
         
         return controller
     }
     
-    static func makeTaskSortScreen() -> TaskSortViewController {
+    static func makeTaskSortScreen(with selectedSortRule: TaskSortDataSource) -> TaskSortViewController {
         
         let controller =  UIStoryboard
             .makeController(name: "Main", identifier: "TaskSortViewController") as! TaskSortViewController
+        controller.setup(selectedSortRule: selectedSortRule)
         
         return controller
     }

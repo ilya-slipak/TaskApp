@@ -11,7 +11,12 @@ final class TaskSortViewController: BasePickerViewController {
 
     // MARK: - Properties
     
-    var dataSource: [String] = ["in alphabetical order ascending", "in alphabetical order descending"]
+    private var dataSource = TaskSortDataSource.allCases
+    private var selectedSortRule: TaskSortDataSource = .createdAtAscending
+    
+    // MARK: - Closure Properties
+    
+    var onSelectSortRule:((_ sortRule: TaskSortDataSource) -> Void)?
     
     // MARK: - Lifecycle Methods
 
@@ -22,16 +27,42 @@ final class TaskSortViewController: BasePickerViewController {
         setupCallbacks()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        performDefaultSelection()
+    }
+    
+    // MARK: - Public Methods
+    
+    func setup(selectedSortRule: TaskSortDataSource) {
+        
+        self.selectedSortRule = selectedSortRule
+    }
+    
+    // MARK: - Private Methods
+    
     private func setupPickerView() {
         
         pickerView.dataSource = self
         pickerView.delegate = self
     }
     
+    private func performDefaultSelection() {
+        
+        guard let selectedIndex = dataSource.firstIndex(of: selectedSortRule) else {
+            return
+        }
+        pickerView.selectRow(selectedIndex, inComponent: 0, animated: true)
+    }
+    
     private func setupCallbacks() {
         
         onApply = { [weak self] in
-            //TODO: Apply action
+            guard let self = self else {
+                return
+            }
+            self.onSelectSortRule?(self.selectedSortRule)
         }
     }
 }
@@ -52,7 +83,7 @@ extension TaskSortViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
-        let title = dataSource[row]
+        let title = dataSource[row].title
         
         guard let pickerLabel = view as? UILabel else {
 
@@ -72,7 +103,7 @@ extension TaskSortViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        //TODO: didSelectRow
-//        viewModel.selectedPickerValue = viewModel.dataSource[row]
-//        setLabelComponentColor(for: row, in: component)
-    }}
+        let newSortRule = dataSource[row]
+        selectedSortRule = newSortRule
+    }
+}

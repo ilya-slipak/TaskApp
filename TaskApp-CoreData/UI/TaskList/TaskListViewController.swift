@@ -17,17 +17,15 @@ final class TaskListViewController: UIViewController {
     
     // MARK: - Private Properties
     
+    private var sortRule: TaskSortDataSource = .createdAtAscending
+    private var filterRule: TaskFilterDataSource = .all
     private lazy var fetchedResultsController:
         NSFetchedResultsController<Task> = {
-            // 1
+            
             let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+            fetchRequest.sortDescriptors = sortRule.sortDescriptors
+            fetchRequest.predicate = filterRule.predicate
             
-            let statusSort = NSSortDescriptor(key: #keyPath(Task.status), ascending: true)
-            let nameSort = NSSortDescriptor(key: #keyPath(Task.title), ascending: true)
-            
-            fetchRequest.sortDescriptors = [statusSort, nameSort]
-            
-            // 2
             let fetchedResultsController = NSFetchedResultsController(
                 fetchRequest: fetchRequest,
                 managedObjectContext: DatabaseManager.shared.context,
@@ -77,8 +75,12 @@ final class TaskListViewController: UIViewController {
         navigationItem.rightBarButtonItems = [filterButton, sortButton]
     }
     
-    private func fetchTasks() {
+    private func fetchTasks(with sortRule: TaskSortDataSource? = nil, filterRule: TaskFilterDataSource? = nil) {
         
+        let sortRule = sortRule ?? self.sortRule
+        let filterRule = filterRule ?? self.filterRule
+        fetchedResultsController.fetchRequest.sortDescriptors = sortRule.sortDescriptors
+        fetchedResultsController.fetchRequest.predicate = filterRule.predicate
         do {
             try fetchedResultsController.performFetch()
             tableView.reloadData()
@@ -104,14 +106,22 @@ final class TaskListViewController: UIViewController {
     @objc
     private func filterButtonAction() {
         
-        let controller = ScreenFactory.makeTaskFilterScreen()
+        let controller = ScreenFactory.makeTaskFilterScreen(selectedFilterRule: filterRule)
+        controller.onSelectFilterRule = { [weak self] filterRule in
+            self?.filterRule = filterRule
+            self?.fetchTasks(filterRule: filterRule)
+        }
         present(controller, animated: true)
     }
     
     @objc
     private func sortButtonAction() {
         
-        let controller = ScreenFactory.makeTaskSortScreen()
+        let controller = ScreenFactory.makeTaskSortScreen(with: sortRule)
+        controller.onSelectSortRule = { [weak self] sortRule in
+            self?.sortRule = sortRule
+            self?.fetchTasks(with: sortRule)
+        }
         present(controller, animated: true)
     }
 }
