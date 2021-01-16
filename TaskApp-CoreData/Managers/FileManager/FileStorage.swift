@@ -10,41 +10,66 @@ import Foundation
 protocol FileStorage {
     
     // MARK: - Properties
-    var documentDirectory: URL? { get }
     
-    // MARK: - Methods
-    func saveFile(data: Data?) -> URL?
-    func deleteFile(_ path: String)
-    func removeAll()
+    var storageURL: URL? { get }
 }
 
 extension FileStorage {
     
-    func getFileURL(fileName: String) -> URL {
+    func saveFile(data: Data, fileName: String) throws -> URL {
         
-        guard let documentDirectory = documentDirectory else {
-            return URL(fileURLWithPath: "")
+        guard let directory = storageURL else {
+            throw FileStorageError.emptyStorage
         }
-        let fileURL = documentDirectory.appendingPathComponent(fileName)
         
+        let fileURL = directory.appendingPathComponent(fileName)
+        let isExist = fileExists(atPath: fileURL.path)
+        if !isExist {
+            try data.write(to: fileURL)
+        }
+        
+        return fileURL
+    }
+    
+    func getFileURL(fileName: String) throws -> URL {
+        
+        guard let storage = storageURL else {
+            throw FileStorageError.emptyStorage
+        }
+        
+        let fileURL = storage.appendingPathComponent(fileName)
+        let isExist = fileExists(atPath: fileURL.path)
+        guard isExist else {
+            throw FileStorageError.emptyFile
+        }
         return fileURL
     }
     
     func deleteFile(_ path: String) {
         
-        let isExist = checkPath(path)
+        let isExist = fileExists(atPath: path)
         if isExist {
             do {
                 try FileManager.default.removeItem(atPath: path)
             } catch let error {
-                print(error.localizedDescription)
+                debugPrint(error.localizedDescription)
             }
         }
     }
     
-    func checkPath(_ path: String) -> Bool {
+    func fileExists(atPath path: String) -> Bool {
         
-        let isFileExist = FileManager.default.fileExists(atPath: path)
-        return isFileExist
+        return FileManager.default.fileExists(atPath: path)
+    }
+    
+    func removeAll() {
+        
+        guard let storageURL = storageURL else {
+            let error = FileStorageError.emptyStorage
+            debugPrint("Error:", error.localizedDescription)
+            return
+        }
+        
+        deleteFile(storageURL.absoluteString)
     }
 }

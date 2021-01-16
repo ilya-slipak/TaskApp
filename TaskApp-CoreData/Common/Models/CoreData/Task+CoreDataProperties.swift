@@ -76,3 +76,45 @@ extension Task {
         return Status(rawValue: status)
     }
 }
+
+// MARK: - Sort and Filter rules
+
+extension Task {
+    
+    static func makeSortDescriptors(for type: TaskSortDataSource) -> [NSSortDescriptor] {
+        
+        var sortDescriptors: [NSSortDescriptor] = []
+
+        let statusSort = NSSortDescriptor(key: #keyPath(Task.status), ascending: true)
+        sortDescriptors.append(statusSort)
+        
+        switch type {
+        
+        case .createdAtAscending:
+            let createdAtSort = NSSortDescriptor(key: #keyPath(Task.createdAt), ascending: true)
+            sortDescriptors.append(createdAtSort)
+        case .createdAtDescending:
+            let createdAtSort = NSSortDescriptor(key: #keyPath(Task.createdAt), ascending: false)
+            sortDescriptors.append(createdAtSort)
+        case .inAlphabeticalAscending:
+            let nameSort = NSSortDescriptor(key: #keyPath(Task.title), ascending: true)
+            sortDescriptors.append(nameSort)
+        case .inAlphabeticalDescending:
+            let nameSort = NSSortDescriptor(key: #keyPath(Task.title), ascending: false)
+            sortDescriptors.append(nameSort)
+        }
+        
+        return sortDescriptors
+    }
+    
+    static func makePredicate(for type: TaskFilterDataSource) -> NSPredicate? {
+        
+        switch type {
+        case .all:
+            return nil
+        default:
+            return NSPredicate(format: "status == %i", type.priority)
+//            return NSPredicate(format: "%K == %@", #keyPath(Task.status), type.rawValue)
+        }
+    }
+}

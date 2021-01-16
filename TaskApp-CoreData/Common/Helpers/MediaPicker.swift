@@ -22,12 +22,10 @@ final class MediaPicker: NSObject {
     // MARK: - Private Properties
     
     private var pickerType: PickerType
-    private var compressionQuality: CGFloat
     
-    init(pickerType: PickerType, compressionQuality: CGFloat) {
+    init(pickerType: PickerType) {
         
         self.pickerType = pickerType
-        self.compressionQuality = compressionQuality
         super.init()
     }
     
@@ -58,7 +56,7 @@ final class MediaPicker: NSObject {
                     }
                 }
             case .denied, .restricted:
-                print("Permission has been denied")
+                debugPrint("Permission has been denied")
             @unknown default:
                 fatalError("Please check new authorization status and setup proper flow for him")
             }
@@ -76,13 +74,10 @@ extension MediaPicker: UIImagePickerControllerDelegate {
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            let imageData = originalImage.jpegData(compressionQuality: 1)
-            let compressedData = originalImage.jpegData(compressionQuality: compressionQuality)
-            let originalURL = ImageStorage.shared.saveFile(data: imageData)
-            let thumbnailURL = ImageStorage.shared.saveFile(data: compressedData)
+//            let originalURL = ImageStorage.shared.saveFile(data: imageData)
+//            let thumbnailURL = ImageStorage.shared.saveFile(data: compressedData)
             
-            completion?(.success(originalURL: originalURL,
-                                 thumbnailURL: thumbnailURL))
+            completion?(.success(image: originalImage))
         }
         completion = nil
         picker.dismiss(animated: true, completion: nil)
@@ -121,6 +116,6 @@ extension MediaPicker {
 extension MediaPicker {
     
     enum Result {
-        case success(originalURL: URL?, thumbnailURL: URL?)
+        case success(image: UIImage)
     }
 }

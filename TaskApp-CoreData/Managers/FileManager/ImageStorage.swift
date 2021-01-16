@@ -10,62 +10,28 @@ import UIKit
 final class ImageStorage {
     
     static let shared = ImageStorage()
-    
-    // MARK: - Properties
-    
-    var documentDirectory: URL? {
-        
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentsDirectory: URL = paths[0]
-        let dataPath = documentsDirectory.appendingPathComponent("Images")
-        
-        if !FileManager.default.fileExists(atPath: dataPath.path) {
-            
-            do {
-                try FileManager.default.createDirectory(at: dataPath, withIntermediateDirectories: false, attributes: nil)
-            } catch let error as NSError {
-                print(error.localizedDescription)
-                return nil
-            }
-        }
-        
-        return dataPath
-    }
 }
 
 // MARK: - FileStorage
 
 extension ImageStorage: FileStorage {
     
-    func saveFile(data: Data?) -> URL? {
+    var storageURL: URL? {
         
-        guard
-            let directory = documentDirectory,
-            let fileData = data else {
-            return nil
-        }
-        
-        let fileName = "\(UUID().uuidString.lowercased()).jpeg"
-        let fileURL = directory.appendingPathComponent(fileName)
-        
-        if !FileManager.default.fileExists(atPath: fileURL.path) {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory: URL = paths[0]
+        let dataPath = documentsDirectory.appendingPathComponent("Images")
+
+        if !FileManager.default.fileExists(atPath: dataPath.path) {
+
             do {
-                try fileData.write(to: fileURL)
+                try FileManager.default.createDirectory(at: dataPath, withIntermediateDirectories: false, attributes: nil)
             } catch {
-                print(error.localizedDescription)
+                debugPrint(error.localizedDescription)
                 return nil
             }
         }
-        
-        return fileURL
-    }
-    
-    func removeAll() {
-        
-        guard let directory = documentDirectory else {
-            return
-        }
-        
-        deleteFile(directory.absoluteString)
+
+        return dataPath
     }
 }

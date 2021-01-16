@@ -38,15 +38,31 @@ final class TaskTableViewCell: UITableViewCell {
             .allObjects
             .map { $0 as! File }
             .first?
-            .thumbnailFilename
+            .filename
         
-        if let imageName = imageFilename {
-            let imageURL = ImageStorage.shared.getFileURL(fileName: imageName)
+        guard let imageName = imageFilename else {
+            setupEmptyImage()
+            return
+        }
+        
+        do {
+            let imageURL = try ImageStorage.shared.getFileURL(fileName: imageName)
             let image = UIImage(contentsOfFile: imageURL.path)
             taskImageView.image = image?.resized(targetSize: taskImageView.frame.size)
-        } else {
-            let emptyImage = UIImage(named: "no-image")
-            taskImageView.image = emptyImage?.resized(targetSize: taskImageView.frame.size)
+        } catch let error as FileStorageError {
+            debugPrint("Error:", error.localizedDescription)
+            setupEmptyImage()
+        } catch {
+            debugPrint("Error:", error.localizedDescription)
+            setupEmptyImage()
         }
+    }
+    
+    // MARK: - Private Methods
+    
+    private func setupEmptyImage() {
+        
+        let emptyImage = UIImage(named: "no-image")
+        taskImageView.image = emptyImage?.resized(targetSize: taskImageView.frame.size)
     }
 }

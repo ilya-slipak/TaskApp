@@ -23,9 +23,7 @@ final class TaskListViewController: UIViewController {
         NSFetchedResultsController<Task> = {
             
             let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-            fetchRequest.sortDescriptors = sortRule.sortDescriptors
-            fetchRequest.predicate = filterRule.predicate
-            
+            updateRequestSettings(for: fetchRequest)
             let fetchedResultsController = NSFetchedResultsController(
                 fetchRequest: fetchRequest,
                 managedObjectContext: DatabaseManager.shared.context,
@@ -75,18 +73,23 @@ final class TaskListViewController: UIViewController {
         navigationItem.rightBarButtonItems = [filterButton, sortButton]
     }
     
-    private func fetchTasks(with sortRule: TaskSortDataSource? = nil, filterRule: TaskFilterDataSource? = nil) {
+    private func fetchTasks() {
         
-        let sortRule = sortRule ?? self.sortRule
-        let filterRule = filterRule ?? self.filterRule
-        fetchedResultsController.fetchRequest.sortDescriptors = sortRule.sortDescriptors
-        fetchedResultsController.fetchRequest.predicate = filterRule.predicate
+        updateRequestSettings(for: fetchedResultsController.fetchRequest)
         do {
             try fetchedResultsController.performFetch()
             tableView.reloadData()
         } catch let error as NSError {
-            print("Fetching error: \(error), \(error.userInfo)")
+            debugPrint("Fetching error: \(error), \(error.userInfo)")
         }
+    }
+    
+    private func updateRequestSettings(for request: NSFetchRequest<Task>) {
+        
+        let sortDescriptors = Task.makeSortDescriptors(for: sortRule)
+        let predicate = Task.makePredicate(for: filterRule)
+        request.sortDescriptors = sortDescriptors
+        request.predicate = predicate
     }
     
     private func deleteTask(at indexPath: IndexPath) {
@@ -115,7 +118,7 @@ final class TaskListViewController: UIViewController {
         let controller = ScreenFactory.makeTaskFilterScreen(selectedFilterRule: filterRule)
         controller.onSelectFilterRule = { [weak self] filterRule in
             self?.filterRule = filterRule
-            self?.fetchTasks(filterRule: filterRule)
+            self?.fetchTasks()
         }
         present(controller, animated: true)
     }
@@ -126,7 +129,7 @@ final class TaskListViewController: UIViewController {
         let controller = ScreenFactory.makeTaskSortScreen(with: sortRule)
         controller.onSelectSortRule = { [weak self] sortRule in
             self?.sortRule = sortRule
-            self?.fetchTasks(with: sortRule)
+            self?.fetchTasks()
         }
         present(controller, animated: true)
     }
@@ -243,7 +246,7 @@ extension TaskListViewController: NSFetchedResultsControllerDelegate {
             tableView.deleteRows(at: [indexPath!], with: .automatic)
             tableView.insertRows(at: [newIndexPath!], with: .automatic)
         @unknown default:
-            print("Unexpected NSFetchedResultsChangeType")
+            debugPrint("Unexpected NSFetchedResultsChangeType")
         }
     }
     

@@ -8,6 +8,7 @@
 import Foundation
 
 struct ValidationError: Error {
+    
     var message: String
     
     init(_ message: String) {

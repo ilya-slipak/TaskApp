@@ -21,7 +21,7 @@ final class NewTaskViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private let imagePicker = MediaPicker(pickerType: .image, compressionQuality: 0.1)
+    private let imagePicker = MediaPicker(pickerType: .image)
     private var images: [ImageModel] = []
     
     // MARK: - Lifecycle Methods
@@ -49,19 +49,10 @@ final class NewTaskViewController: UIViewController {
             }
             
             self.imagePicker.presentImagePicker(in: self, sourceType: .photoLibrary) { [weak self] result in
-                guard let self = self else {
-                    return
-                }
+
                 switch result {
-                case .success(let originalURL, let compressedURL):
-                    guard let originalURL = originalURL,
-                          let compressedURL = compressedURL else {
-                        return
-                    }
-                    
-                    let imageModel = ImageModel(originalURL: originalURL, thumbnailURL: compressedURL)
-                    self.images.append(imageModel)
-                    self.photoMediaPicker.updateDataSource(self.images)
+                case .success(let image):
+                    self?.saveImage(image)
                 }
             }
         }
@@ -72,7 +63,23 @@ final class NewTaskViewController: UIViewController {
         }
     }
     
-    func validateData() -> Bool {
+    private func saveImage(_ image: UIImage) {
+        
+        guard let imageData = image.jpegData(compressionQuality: 1) else {
+            return
+        }
+        let fileName = "\(UUID().uuidString.lowercased()).jpeg"
+        do {
+            let originalURL = try ImageStorage.shared.saveFile(data: imageData, fileName: fileName)
+            let imageModel = ImageModel(originalURL: originalURL)
+            self.images.append(imageModel)
+            self.photoMediaPicker.updateDataSource(self.images)
+        } catch {
+            debugPrint("Error", error.localizedDescription)
+        }
+    }
+    
+   private func validateData() -> Bool {
         
         var title = ""
         var description = ""

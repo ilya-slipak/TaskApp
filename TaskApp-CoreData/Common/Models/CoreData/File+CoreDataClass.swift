@@ -12,13 +12,11 @@ import CoreData
 @objc(File)
 public class File: NSManagedObject {
 
-    convenience init(originalFilename: String,
-                     thumbnailFilename: String,
+    convenience init(filename: String,
                      context: NSManagedObjectContext) {
         self.init(context: context)
         
-        self.originalFilename = originalFilename
-        self.thumbnailFilename = thumbnailFilename
+        self.filename = filename
         self.createdAt = Date()
         self.identifier = UUID()
     }

@@ -28,12 +28,17 @@ enum TaskFilterDataSource: String, CaseIterable {
         }
     }
     
-    var predicate: NSPredicate? {
+    var priority: Int {
+        
         switch self {
         case .all:
-            return nil
-        default:
-            return NSPredicate(format: "%K == %@", #keyPath(Task.status), rawValue)
+            return -1
+        case .pending:
+            return 0
+        case .accepted:
+            return 1
+        case .completed:
+            return 2
         }
     }
 }

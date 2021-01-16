@@ -10,18 +10,13 @@ import Foundation
 struct ImageModel {
     
     var originalURL: URL
-    var thumbnailURL: URL
 }
 
 // MARK: - MediaModel
 
 extension ImageModel: MediaModel {
     
-    var originalFilename: String {
+    var filename: String {
        return originalURL.lastPathComponent
-    }
-    
-    var thumbnailFilename: String {
-        return thumbnailURL.lastPathComponent
     }
 }

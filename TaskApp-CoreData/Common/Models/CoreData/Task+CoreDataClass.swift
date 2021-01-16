@@ -27,8 +27,7 @@ public class Task: NSManagedObject {
         
         images.forEach { image in
             
-            let file = File(originalFilename: image.originalURL.lastPathComponent,
-                            thumbnailFilename: image.thumbnailURL.lastPathComponent,
+            let file = File(filename: image.originalURL.lastPathComponent,
                             context: context)
             addToPhotoAttachments(file)
         }

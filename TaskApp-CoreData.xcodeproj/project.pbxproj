@@ -52,6 +52,8 @@
 		05DEF75725A7A10F00AE704B /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF75625A7A10F00AE704B /* EditTaskViewController.swift */; };
 		05DEF75C25A7A22900AE704B /* TaskSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF75B25A7A22900AE704B /* TaskSortViewController.swift */; };
 		05DEF75F25A7A24300AE704B /* TaskFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF75E25A7A24300AE704B /* TaskFilterViewController.swift */; };
+		05E7960725B2F3E9002C3C01 /* FileStorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E7960625B2F3E9002C3C01 /* FileStorageError.swift */; };
+		05E7960A25B328F6002C3C01 /* DatabaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E7960925B328F6002C3C01 /* DatabaseError.swift */; };
 		05EC3B1925A8D1EF00A1FE90 /* ErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EC3B1825A8D1EF00A1FE90 /* ErrorLabel.swift */; };
 		05EC3B1C25A8D20500A1FE90 /* CusomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EC3B1B25A8D20500A1FE90 /* CusomButton.swift */; };
 		05EC3B1F25A8D21A00A1FE90 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EC3B1E25A8D21A00A1FE90 /* CustomTextField.swift */; };
@@ -111,6 +113,8 @@
 		05DEF75625A7A10F00AE704B /* EditTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewController.swift; sourceTree = "<group>"; };
 		05DEF75B25A7A22900AE704B /* TaskSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSortViewController.swift; sourceTree = "<group>"; };
 		05DEF75E25A7A24300AE704B /* TaskFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFilterViewController.swift; sourceTree = "<group>"; };
+		05E7960625B2F3E9002C3C01 /* FileStorageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorageError.swift; sourceTree = "<group>"; };
+		05E7960925B328F6002C3C01 /* DatabaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseError.swift; sourceTree = "<group>"; };
 		05EC3B1825A8D1EF00A1FE90 /* ErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLabel.swift; sourceTree = "<group>"; };
 		05EC3B1B25A8D20500A1FE90 /* CusomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CusomButton.swift; sourceTree = "<group>"; };
 		05EC3B1E25A8D21A00A1FE90 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -333,6 +337,7 @@
 		05DEF73F25A79DF800AE704B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				05E7960525B2F3DC002C3C01 /* Errors */,
 				05D092AC25A9112B000B5B52 /* CoreData */,
 				0580285225ACD4F4006D43F3 /* ImageModel.swift */,
 				0580285525ACE5B5006D43F3 /* TaskSortDataSource.swift */,
@@ -397,6 +402,15 @@
 				05DEF75B25A7A22900AE704B /* TaskSortViewController.swift */,
 			);
 			path = TaskSort;
+			sourceTree = "<group>";
+		};
+		05E7960525B2F3DC002C3C01 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				05E7960625B2F3E9002C3C01 /* FileStorageError.swift */,
+				05E7960925B328F6002C3C01 /* DatabaseError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		05EC3B1125A8D1A500A1FE90 /* UIButton */ = {
@@ -571,6 +585,7 @@
 				05EC3B1F25A8D21A00A1FE90 /* CustomTextField.swift in Sources */,
 				05D092A725A8F9CA000B5B52 /* MediaPicker.swift in Sources */,
 				058C99FE25A8753D0087D005 /* BasePickerViewController.swift in Sources */,
+				05E7960A25B328F6002C3C01 /* DatabaseError.swift in Sources */,
 				05ECB8CC25AA3DE000504FDA /* FileManager.swift in Sources */,
 				05A68D2825A8C656004FBE18 /* ValidationType.swift in Sources */,
 				05872B4625A787810040FB0B /* DatabaseManager.swift in Sources */,
@@ -581,6 +596,7 @@
 				05EC3B2225A8D22A00A1FE90 /* CustomTextView.swift in Sources */,
 				05DEF75425A7A0F900AE704B /* NewTaskViewController.swift in Sources */,
 				05EC3B1925A8D1EF00A1FE90 /* ErrorLabel.swift in Sources */,
+				05E7960725B2F3E9002C3C01 /* FileStorageError.swift in Sources */,
 				05DEF75125A7A0E000AE704B /* TaskDetailViewController.swift in Sources */,
 				053C102225AAFB090077DEBA /* FileStorage.swift in Sources */,
 				05872B2D25A786110040FB0B /* TaskApp_CoreData.xcdatamodeld in Sources */,

@@ -28,29 +28,4 @@ enum TaskSortDataSource: CaseIterable {
             return "in alphabetical order descending"
         }
     }
-    
-    var sortDescriptors: [NSSortDescriptor] {
-        
-        var sortDescriptors: [NSSortDescriptor] = []
-        let statusSort = NSSortDescriptor(key: #keyPath(Task.status), ascending: true)
-        sortDescriptors.append(statusSort)
-        
-        switch self {
-
-        case .createdAtAscending:
-            let createdAtSort = NSSortDescriptor(key: #keyPath(Task.createdAt), ascending: true)
-            sortDescriptors.append(createdAtSort)
-        case .createdAtDescending:
-            let createdAtSort = NSSortDescriptor(key: #keyPath(Task.createdAt), ascending: false)
-            sortDescriptors.append(createdAtSort)
-        case .inAlphabeticalAscending:
-            let nameSort = NSSortDescriptor(key: #keyPath(Task.title), ascending: true)
-            sortDescriptors.append(nameSort)
-        case .inAlphabeticalDescending:
-            let nameSort = NSSortDescriptor(key: #keyPath(Task.title), ascending: false)
-            sortDescriptors.append(nameSort)
-        }
-        
-        return sortDescriptors
-    }
 }

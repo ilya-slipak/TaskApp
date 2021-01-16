@@ -9,6 +9,5 @@ import Foundation
 
 protocol MediaModel {
     
-    var originalFilename: String { get }
-    var thumbnailFilename: String { get }
+    var filename: String { get }
 }

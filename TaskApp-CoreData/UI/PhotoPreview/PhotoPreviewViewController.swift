@@ -38,10 +38,16 @@ final class PhotoPreviewViewController: UIViewController {
     
     private func setupView() {
         
-        let fileName = mediaModel.originalFilename
-        let imageURL = ImageStorage.shared.getFileURL(fileName: fileName)
-        let image = UIImage(contentsOfFile: imageURL.path)
-        imageView.image = image
+        let fileName = mediaModel.filename
+        do {
+            let imageURL = try ImageStorage.shared.getFileURL(fileName: fileName)
+            let image = UIImage(contentsOfFile: imageURL.path)
+            imageView.image = image
+        } catch let error as FileStorageError {
+            debugPrint("Error:", error.localizedDescription)
+        } catch {
+            debugPrint("Error:", error.localizedDescription)
+        }
     }
     
     // MARK: - Action Methods

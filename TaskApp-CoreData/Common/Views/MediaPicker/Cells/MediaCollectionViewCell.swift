@@ -12,7 +12,7 @@ final class MediaCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "MediaCollectionViewCell"
     
     // MARK: - IBOutlet Properties
-
+    
     @IBOutlet private weak var imageView: UIImageView!
     
     // MARK: - Lifecycle Methods
@@ -22,7 +22,7 @@ final class MediaCollectionViewCell: UICollectionViewCell {
         
         layer.cornerRadius = 8
     }
-        
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         
@@ -33,9 +33,15 @@ final class MediaCollectionViewCell: UICollectionViewCell {
     
     func configure(with mediaModel: MediaModel) {
         
-        let fileName = mediaModel.thumbnailFilename
-        let imageURL = ImageStorage.shared.getFileURL(fileName: fileName)
-        let image = UIImage(contentsOfFile: imageURL.path)
-        imageView.image = image?.resized(targetSize: frame.size)
+        let fileName = mediaModel.filename
+        do {
+            let imageURL = try ImageStorage.shared.getFileURL(fileName: fileName)
+            let image = UIImage(contentsOfFile: imageURL.path)
+            imageView.image = image?.resized(targetSize: frame.size)
+        } catch let error as FileStorageError {
+            debugPrint("Error:", error.localizedDescription)
+        } catch {
+            debugPrint("Error:", error.localizedDescription)
+        }
     }
 }
