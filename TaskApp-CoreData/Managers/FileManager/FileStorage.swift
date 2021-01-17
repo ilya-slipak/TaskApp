@@ -18,11 +18,11 @@ extension FileStorage {
     
     func saveFile(data: Data, fileName: String) throws -> URL {
         
-        guard let directory = storageURL else {
+        guard let storageURL = storageURL else {
             throw FileStorageError.emptyStorage
         }
         
-        let fileURL = directory.appendingPathComponent(fileName)
+        let fileURL = storageURL.appendingPathComponent(fileName)
         let isExist = fileExists(atPath: fileURL.path)
         if !isExist {
             try data.write(to: fileURL)
@@ -33,11 +33,11 @@ extension FileStorage {
     
     func getFileURL(fileName: String) throws -> URL {
         
-        guard let storage = storageURL else {
+        guard let storageURL = storageURL else {
             throw FileStorageError.emptyStorage
         }
         
-        let fileURL = storage.appendingPathComponent(fileName)
+        let fileURL = storageURL.appendingPathComponent(fileName)
         let isExist = fileExists(atPath: fileURL.path)
         guard isExist else {
             throw FileStorageError.emptyFile
@@ -51,7 +51,7 @@ extension FileStorage {
         if isExist {
             do {
                 try FileManager.default.removeItem(atPath: path)
-            } catch let error {
+            } catch {
                 debugPrint(error.localizedDescription)
             }
         }

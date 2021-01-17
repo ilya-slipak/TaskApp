@@ -95,7 +95,7 @@ final class PickerViewController: UIViewController {
         
     private func updateAppearance(completion: (() -> Void)?) {
         
-        UIView.animate(withDuration: 0.25, animations: {
+        UIView.animate(withDuration: Constant.animationDuration, animations: {
             self.view.layoutIfNeeded()
         }) { _ in
             completion?()
@@ -174,5 +174,15 @@ extension PickerViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         selectedIndex = row
+    }
+}
+
+// MARK: - Constant
+
+extension PickerViewController {
+    
+    struct Constant {
+        
+        static let animationDuration: Double = 0.25
     }
 }

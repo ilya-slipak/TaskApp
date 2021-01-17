@@ -25,7 +25,9 @@ extension VideoStorage: FileStorage {
         if !FileManager.default.fileExists(atPath: dataPath.path) {
             
             do {
-                try FileManager.default.createDirectory(at: dataPath, withIntermediateDirectories: false, attributes: nil)
+                try FileManager.default.createDirectory(at: dataPath,
+                                                        withIntermediateDirectories: false,
+                                                        attributes: nil)
             } catch {
                 debugPrint(error.localizedDescription)
                 return nil

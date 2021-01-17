@@ -9,7 +9,7 @@ import UIKit
 
 final class NewTaskViewController: UIViewController {
     
-    // MARK: - IBOultet Properties
+    // MARK: - IBOutlet Properties
 
     @IBOutlet private weak var titleTextField: CustomTextField!
     @IBOutlet private weak var titleErrorLabel: ErrorLabel!

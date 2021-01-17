@@ -180,14 +180,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MwL-kD-zzn">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <color key="backgroundColor" name="AppGrayColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Nvd-AY-GgJ"/>
+                                    <constraint firstAttribute="height" constant="44" id="Nvd-AY-GgJ"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liX-Ah-dDB">
-                                <rect key="frame" x="8" y="16" width="44" height="44"/>
+                                <rect key="frame" x="8" y="0.0" width="44" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="QpJ-ni-gLC"/>
@@ -206,7 +206,7 @@
                         <viewLayoutGuide key="safeArea" id="BK1-9X-j7u"/>
                         <color key="backgroundColor" name="AppGrayColor"/>
                         <constraints>
-                            <constraint firstItem="liX-Ah-dDB" firstAttribute="centerY" secondItem="MwL-kD-zzn" secondAttribute="centerY" constant="8" id="1Ay-qQ-OOL"/>
+                            <constraint firstItem="liX-Ah-dDB" firstAttribute="centerY" secondItem="MwL-kD-zzn" secondAttribute="centerY" id="1Ay-qQ-OOL"/>
                             <constraint firstItem="BK1-9X-j7u" firstAttribute="trailing" secondItem="XlM-2h-NXW" secondAttribute="trailing" id="95a-IE-0lR"/>
                             <constraint firstItem="MwL-kD-zzn" firstAttribute="leading" secondItem="BK1-9X-j7u" secondAttribute="leading" id="9oR-oR-tKC"/>
                             <constraint firstItem="XlM-2h-NXW" firstAttribute="leading" secondItem="BK1-9X-j7u" secondAttribute="leading" id="GCj-Gp-JSW"/>
@@ -219,6 +219,7 @@
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="liX-Ah-dDB" id="Jed-dM-nCr"/>
+                        <outlet property="heightConstraint" destination="Nvd-AY-GgJ" id="bfF-0l-MF2"/>
                         <outlet property="imageView" destination="XlM-2h-NXW" id="RuK-it-8Ee"/>
                     </connections>
                 </viewController>

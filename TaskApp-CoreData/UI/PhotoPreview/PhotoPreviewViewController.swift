@@ -13,6 +13,7 @@ final class PhotoPreviewViewController: UIViewController {
     
     @IBOutlet private weak var closeButton: UIButton!
     @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var heightConstraint: NSLayoutConstraint!
     
     // MARK: - Private Properties
     
@@ -37,6 +38,23 @@ final class PhotoPreviewViewController: UIViewController {
     // MARK: - Private Methods
     
     private func setupView() {
+        
+        setupConstraint()
+        setupImage()
+    }
+    
+    private func setupConstraint() {
+        
+        guard let window = UIApplication.shared.keyWindow else {
+            return
+        }
+        
+        view.layoutIfNeeded()
+        let topInset = window.safeAreaInsets.top
+        heightConstraint.constant += topInset
+    }
+    
+    private func setupImage() {
         
         let fileName = mediaModel.filename
         do {

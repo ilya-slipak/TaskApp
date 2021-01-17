@@ -9,7 +9,7 @@ import UIKit
 
 final class TaskDetailViewController: UIViewController {
     
-    // MARK: - IBOultet Properties
+    // MARK: - IBOutlet Properties
 
     @IBOutlet private weak var titleTextField: CustomTextField!
     @IBOutlet private weak var descriptionTextView: CustomTextView!
