@@ -115,8 +115,8 @@ final class TaskListViewController: UIViewController {
     @objc
     private func filterButtonAction() {
         
-        guard
-            let selectedIndex = TaskFilterDataSource.allCases.firstIndex(where: { $0 == filterRule }) else {
+        let index = TaskFilterDataSource.allCases.firstIndex { $0 == filterRule }
+        guard let selectedIndex = index else {
             return
         }
         let controller = ScreenFactory.makePickerScreen(with: TaskFilterDataSource.allCases, selectedIndex: selectedIndex)
@@ -131,10 +131,11 @@ final class TaskListViewController: UIViewController {
     @objc
     private func sortButtonAction() {
         
-        guard
-            let selectedIndex = TaskSortDataSource.allCases.firstIndex(where: { $0 == sortRule }) else {
+        let index = TaskSortDataSource.allCases.firstIndex { $0 == sortRule }
+        guard let selectedIndex = index else {
             return
         }
+
         let controller = ScreenFactory.makePickerScreen(with: TaskSortDataSource.allCases, selectedIndex: selectedIndex)
         controller.onApply = { [weak self] index in
             let newSortRule = TaskSortDataSource.allCases[index]
