@@ -13,6 +13,11 @@ enum TaskSortDataSource: CaseIterable {
     case createdAtDescending
     case inAlphabeticalAscending
     case inAlphabeticalDescending
+}
+
+// MARK: - RuleModel
+
+extension TaskSortDataSource: PickerRuleModel {
     
     var title: String {
         

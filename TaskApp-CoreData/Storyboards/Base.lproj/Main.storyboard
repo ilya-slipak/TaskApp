@@ -168,104 +168,6 @@
             </objects>
             <point key="canvasLocation" x="1539" y="94"/>
         </scene>
-        <!--Task Filter View Controller-->
-        <scene sceneID="DYd-N8-RMK">
-            <objects>
-                <viewController storyboardIdentifier="TaskFilterViewController" modalPresentationStyle="overFullScreen" id="1Y8-fW-gxW" customClass="TaskFilterViewController" customModule="TaskApp_CoreData" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="UnE-41-irX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSH-1V-UKV">
-                                <rect key="frame" x="0.0" y="635" width="414" height="261"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJz-S8-Ryb">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="d9d-zn-Gu6"/>
-                                            <constraint firstAttribute="width" constant="100" id="vHe-XV-Qgb"/>
-                                        </constraints>
-                                        <state key="normal" title="Cancel">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="cancelButtonAction:" destination="1Y8-fW-gxW" eventType="touchUpInside" id="nky-NP-jR7"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYh-JT-lgf">
-                                        <rect key="frame" x="314" y="0.0" width="100" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="cf6-Vy-IbG"/>
-                                            <constraint firstAttribute="height" constant="44" id="f1a-GR-TUY"/>
-                                        </constraints>
-                                        <state key="normal" title="Apply">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="applyButtonAction:" destination="1Y8-fW-gxW" eventType="touchUpInside" id="qQW-1C-suV"/>
-                                        </connections>
-                                    </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FhF-c3-2lC">
-                                        <rect key="frame" x="0.0" y="44" width="414" height="1"/>
-                                        <color key="backgroundColor" red="0.1647058824" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="GhB-7D-doj"/>
-                                        </constraints>
-                                    </view>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AS3-Nf-bel">
-                                        <rect key="frame" x="0.0" y="45" width="414" height="216"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </pickerView>
-                                </subviews>
-                                <color key="backgroundColor" name="AppGrayColor"/>
-                                <constraints>
-                                    <constraint firstItem="yJz-S8-Ryb" firstAttribute="leading" secondItem="VSH-1V-UKV" secondAttribute="leading" id="BWa-2e-yGR"/>
-                                    <constraint firstAttribute="trailing" secondItem="aYh-JT-lgf" secondAttribute="trailing" id="HKL-yZ-cHd"/>
-                                    <constraint firstAttribute="bottom" secondItem="AS3-Nf-bel" secondAttribute="bottom" id="IQ0-ll-tfP"/>
-                                    <constraint firstItem="FhF-c3-2lC" firstAttribute="leading" secondItem="VSH-1V-UKV" secondAttribute="leading" id="J0X-VE-i71"/>
-                                    <constraint firstItem="FhF-c3-2lC" firstAttribute="top" secondItem="yJz-S8-Ryb" secondAttribute="bottom" id="Nq9-P3-Jem"/>
-                                    <constraint firstAttribute="trailing" secondItem="AS3-Nf-bel" secondAttribute="trailing" id="Qkj-QK-jXX"/>
-                                    <constraint firstAttribute="trailing" secondItem="FhF-c3-2lC" secondAttribute="trailing" id="Wem-u6-aGT"/>
-                                    <constraint firstItem="AS3-Nf-bel" firstAttribute="leading" secondItem="VSH-1V-UKV" secondAttribute="leading" id="ah3-MV-Iet"/>
-                                    <constraint firstItem="yJz-S8-Ryb" firstAttribute="top" secondItem="VSH-1V-UKV" secondAttribute="top" id="idB-5u-beW"/>
-                                    <constraint firstItem="aYh-JT-lgf" firstAttribute="top" secondItem="VSH-1V-UKV" secondAttribute="top" id="kjg-DW-mOB"/>
-                                    <constraint firstItem="AS3-Nf-bel" firstAttribute="top" secondItem="FhF-c3-2lC" secondAttribute="bottom" id="wRw-o8-4EI"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w0w-g0-FG2">
-                                <rect key="frame" x="0.0" y="896" width="414" height="0.0"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" id="ykQ-02-wht"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Yvu-3t-Z4l"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="VSH-1V-UKV" firstAttribute="leading" secondItem="Yvu-3t-Z4l" secondAttribute="leading" id="39Y-7v-XpJ"/>
-                            <constraint firstItem="Yvu-3t-Z4l" firstAttribute="trailing" secondItem="w0w-g0-FG2" secondAttribute="trailing" id="6FE-h8-iqb"/>
-                            <constraint firstAttribute="bottom" secondItem="w0w-g0-FG2" secondAttribute="bottom" id="Eqk-mj-6AT"/>
-                            <constraint firstItem="Yvu-3t-Z4l" firstAttribute="trailing" secondItem="VSH-1V-UKV" secondAttribute="trailing" id="Pkf-XE-s5Y"/>
-                            <constraint firstItem="w0w-g0-FG2" firstAttribute="leading" secondItem="Yvu-3t-Z4l" secondAttribute="leading" id="sjw-Ki-g3o"/>
-                            <constraint firstItem="w0w-g0-FG2" firstAttribute="top" secondItem="VSH-1V-UKV" secondAttribute="bottom" id="zFC-0S-hZd"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="applyButton" destination="aYh-JT-lgf" id="SYB-9h-kFU"/>
-                        <outlet property="bottomSafeAreaConstraint" destination="Eqk-mj-6AT" id="hlF-sI-YTf"/>
-                        <outlet property="bottomSafeAreaHeightConstraint" destination="ykQ-02-wht" id="hV0-Vq-VWV"/>
-                        <outlet property="cancelButton" destination="yJz-S8-Ryb" id="Vba-7Q-CvD"/>
-                        <outlet property="contentView" destination="VSH-1V-UKV" id="L7D-OL-3bT"/>
-                        <outlet property="pickerView" destination="AS3-Nf-bel" id="WNg-sK-in3"/>
-                        <outlet property="safeAreaView" destination="w0w-g0-FG2" id="C5c-cC-Z4E"/>
-                        <outlet property="separatorView" destination="FhF-c3-2lC" id="SNs-Pp-SLz"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Nx-e6-8Wi" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="121.73913043478262" y="-574.55357142857144"/>
-        </scene>
         <!--Photo Preview View Controller-->
         <scene sceneID="xgQ-uD-J3j">
             <objects>
@@ -339,10 +241,10 @@
             </objects>
             <point key="canvasLocation" x="1538" y="-575"/>
         </scene>
-        <!--Task Sort View Controller-->
+        <!--Picker View Controller-->
         <scene sceneID="Ipz-Eu-BAr">
             <objects>
-                <viewController storyboardIdentifier="TaskSortViewController" modalPresentationStyle="overFullScreen" id="U0J-E6-fPH" customClass="TaskSortViewController" customModule="TaskApp_CoreData" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PickerViewController" modalPresentationStyle="overFullScreen" id="U0J-E6-fPH" customClass="PickerViewController" customModule="TaskApp_CoreData" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Nr-e8-ELo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -405,7 +307,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJZ-Rx-C8U">
                                 <rect key="frame" x="0.0" y="896" width="414" height="0.0"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <color key="backgroundColor" name="AppGrayColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="kWY-so-n8f"/>
                                 </constraints>
@@ -435,7 +337,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrg-6Q-cPu" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-542" y="-575"/>
+            <point key="canvasLocation" x="122" y="-575"/>
         </scene>
         <!--Task Detail View Controller-->
         <scene sceneID="km0-pN-yXd">

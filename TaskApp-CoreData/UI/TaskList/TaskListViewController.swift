@@ -115,9 +115,14 @@ final class TaskListViewController: UIViewController {
     @objc
     private func filterButtonAction() {
         
-        let controller = ScreenFactory.makeTaskFilterScreen(selectedFilterRule: filterRule)
-        controller.onSelectFilterRule = { [weak self] filterRule in
-            self?.filterRule = filterRule
+        guard
+            let selectedIndex = TaskFilterDataSource.allCases.firstIndex(where: { $0 == filterRule }) else {
+            return
+        }
+        let controller = ScreenFactory.makePickerScreen(with: TaskFilterDataSource.allCases, selectedIndex: selectedIndex)
+        controller.onApply = { [weak self] index in
+            let newFilterRule = TaskFilterDataSource.allCases[index]
+            self?.filterRule = newFilterRule
             self?.fetchTasks()
         }
         present(controller, animated: true)
@@ -126,9 +131,14 @@ final class TaskListViewController: UIViewController {
     @objc
     private func sortButtonAction() {
         
-        let controller = ScreenFactory.makeTaskSortScreen(with: sortRule)
-        controller.onSelectSortRule = { [weak self] sortRule in
-            self?.sortRule = sortRule
+        guard
+            let selectedIndex = TaskSortDataSource.allCases.firstIndex(where: { $0 == sortRule }) else {
+            return
+        }
+        let controller = ScreenFactory.makePickerScreen(with: TaskSortDataSource.allCases, selectedIndex: selectedIndex)
+        controller.onApply = { [weak self] index in
+            let newSortRule = TaskSortDataSource.allCases[index]
+            self?.sortRule = newSortRule
             self?.fetchTasks()
         }
         present(controller, animated: true)
