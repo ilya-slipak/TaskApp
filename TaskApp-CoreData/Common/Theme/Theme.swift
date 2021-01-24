@@ -11,10 +11,10 @@ struct Theme {
     
     func setup() {
         
-        setupNavigatioтTheme()
+        setupNavigationTheme()
     }
     
-    private func setupNavigatioтTheme() {
+    private func setupNavigationTheme() {
         
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.1176470588, green: 0.1176470588, blue: 0.1176470588, alpha: 1)

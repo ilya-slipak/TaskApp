@@ -35,7 +35,6 @@
 		05872B4625A787810040FB0B /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05872B4525A787810040FB0B /* DatabaseManager.swift */; };
 		058C99F725A870870087D005 /* VideoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058C99F625A870870087D005 /* VideoPreviewViewController.swift */; };
 		058C99FA25A870950087D005 /* PhotoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058C99F925A870950087D005 /* PhotoPreviewViewController.swift */; };
-		058C99FE25A8753D0087D005 /* BasePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058C99FD25A8753D0087D005 /* BasePickerViewController.swift */; };
 		05A68D2525A8C631004FBE18 /* ValidationConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A68D2425A8C631004FBE18 /* ValidationConvertible.swift */; };
 		05A68D2825A8C656004FBE18 /* ValidationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A68D2725A8C656004FBE18 /* ValidationType.swift */; };
 		05A68D2C25A8C66E004FBE18 /* ValidationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A68D2B25A8C66E004FBE18 /* ValidationFactory.swift */; };
@@ -96,7 +95,6 @@
 		05872B4525A787810040FB0B /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DatabaseManager.swift; path = "TaskApp-CoreData/Managers/Database/Base/DatabaseManager.swift"; sourceTree = SOURCE_ROOT; };
 		058C99F625A870870087D005 /* VideoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreviewViewController.swift; sourceTree = "<group>"; };
 		058C99F925A870950087D005 /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
-		058C99FD25A8753D0087D005 /* BasePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePickerViewController.swift; sourceTree = "<group>"; };
 		05A68D2425A8C631004FBE18 /* ValidationConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationConvertible.swift; sourceTree = "<group>"; };
 		05A68D2725A8C656004FBE18 /* ValidationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationType.swift; sourceTree = "<group>"; };
 		05A68D2B25A8C66E004FBE18 /* ValidationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationFactory.swift; sourceTree = "<group>"; };
@@ -218,7 +216,6 @@
 			children = (
 				05F01EB725A8C14A0037A40C /* Helpers */,
 				05F01EB425A8BF3C0037A40C /* Views */,
-				058C99FC25A875320087D005 /* Base */,
 				05DEF74B25A79F4400AE704B /* Factories */,
 				05DEF73F25A79DF800AE704B /* Models */,
 				05BB6F7725A7888D004B38E0 /* Theme */,
@@ -304,14 +301,6 @@
 				058C99F625A870870087D005 /* VideoPreviewViewController.swift */,
 			);
 			path = VideoPreview;
-			sourceTree = "<group>";
-		};
-		058C99FC25A875320087D005 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				058C99FD25A8753D0087D005 /* BasePickerViewController.swift */,
-			);
-			path = Base;
 			sourceTree = "<group>";
 		};
 		05BB6F7725A7888D004B38E0 /* Theme */ = {
@@ -584,7 +573,6 @@
 				0580285325ACD4F4006D43F3 /* ImageModel.swift in Sources */,
 				05EC3B1F25A8D21A00A1FE90 /* CustomTextField.swift in Sources */,
 				05D092A725A8F9CA000B5B52 /* MediaPicker.swift in Sources */,
-				058C99FE25A8753D0087D005 /* BasePickerViewController.swift in Sources */,
 				05E7960A25B328F6002C3C01 /* DatabaseError.swift in Sources */,
 				05ECB8CC25AA3DE000504FDA /* FileManager.swift in Sources */,
 				05A68D2825A8C656004FBE18 /* ValidationType.swift in Sources */,

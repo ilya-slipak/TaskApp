@@ -52,7 +52,7 @@ extension FileStorage {
             do {
                 try FileManager.default.removeItem(atPath: path)
             } catch {
-                debugPrint(error.localizedDescription)
+                debugPrint("Failed to delete file:",error.localizedDescription)
             }
         }
     }
