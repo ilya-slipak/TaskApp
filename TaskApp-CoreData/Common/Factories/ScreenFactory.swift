@@ -11,16 +11,15 @@ enum ScreenFactory {
     
     static func makeTaskListScreen() -> TaskListViewController {
         
-        let controller =  UIStoryboard
-            .makeController(name: "Main", identifier: "TaskListViewController") as! TaskListViewController
-        
+        let controller = TaskListViewController.instantiateFromStoryboard()
+                    
         return controller
     }
     
     static func makeTaskDetailScreen(with task: Task) -> TaskDetailViewController {
         
-        let controller =  UIStoryboard
-            .makeController(name: "Main", identifier: "TaskDetailViewController") as! TaskDetailViewController
+        let controller = TaskDetailViewController.instantiateFromStoryboard()
+        
         controller.setup(with: task)
         
         return controller
@@ -28,24 +27,22 @@ enum ScreenFactory {
         
     static func makeEditTaskScreen() -> EditTaskViewController {
         
-        let controller =  UIStoryboard
-            .makeController(name: "Main", identifier: "EditTaskViewController") as! EditTaskViewController
+        let controller = EditTaskViewController.instantiateFromStoryboard()
         
         return controller
     }
     
     static func makeNewTaskScreen() -> NewTaskViewController {
         
-        let controller =  UIStoryboard
-            .makeController(name: "Main", identifier: "NewTaskViewController") as! NewTaskViewController
+        let controller = NewTaskViewController.instantiateFromStoryboard()
         
         return controller
     }
     
     static func makePickerScreen(with dataSource: [PickerRuleModel], selectedIndex: Int) -> PickerViewController {
         
-        let controller =  UIStoryboard
-            .makeController(name: "Main", identifier: "PickerViewController") as! PickerViewController
+        let controller = PickerViewController.instantiateFromStoryboard()
+
         controller.setup(dataSource: dataSource, selectedIndex: selectedIndex)
         
         return controller
@@ -53,8 +50,8 @@ enum ScreenFactory {
     
     static func makePhotoPreviewScreen(with mediaModel: MediaModel) -> PhotoPreviewViewController {
         
-        let controller =  UIStoryboard
-            .makeController(name: "Main", identifier: "PhotoPreviewViewController") as! PhotoPreviewViewController
+        let controller = PhotoPreviewViewController.instantiateFromStoryboard()
+
         controller.setup(with: mediaModel)
         
         return controller
@@ -62,8 +59,7 @@ enum ScreenFactory {
     
     static func makeVideoPreviewScreen() -> VideoPreviewViewController {
         
-        let controller =  UIStoryboard
-            .makeController(name: "Main", identifier: "VideoPreviewViewController") as! VideoPreviewViewController
+        let controller = VideoPreviewViewController.instantiateFromStoryboard()
         
         return controller
     }

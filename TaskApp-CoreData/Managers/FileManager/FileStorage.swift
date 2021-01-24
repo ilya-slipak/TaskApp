@@ -38,10 +38,7 @@ extension FileStorage {
         }
         
         let fileURL = storageURL.appendingPathComponent(fileName)
-        let isExist = fileExists(atPath: fileURL.path)
-        guard isExist else {
-            throw FileStorageError.emptyFile
-        }
+
         return fileURL
     }
     
