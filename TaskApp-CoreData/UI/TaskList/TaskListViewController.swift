@@ -12,11 +12,13 @@ final class TaskListViewController: UIViewController {
     
     // MARK: - IBOutlet Properties
     
+    @IBOutlet private weak var noResultsLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var newTaskButton: CustomButton!
     
     // MARK: - Private Properties
     
+    private var taskDatabaseManager: TaskDatabaseManagerProtocol = TaskDatabaseManager()
     private var sortRule: TaskSortDataSource = .createdAtAscending
     private var filterRule: TaskFilterDataSource = .all
     private lazy var fetchedResultsController:
@@ -79,6 +81,7 @@ final class TaskListViewController: UIViewController {
         do {
             try fetchedResultsController.performFetch()
             tableView.reloadData()
+            checkIfDataSourceIsEmpty()
         } catch let error as NSError {
             debugPrint("Fetching error: \(error), \(error.userInfo)")
         }
@@ -95,7 +98,14 @@ final class TaskListViewController: UIViewController {
     private func deleteTask(at indexPath: IndexPath) {
         
         let task = fetchedResultsController.object(at: indexPath)
-        TaskDatabaseManager.shared.deleteTask(task)
+        taskDatabaseManager.deleteTask(task)
+        checkIfDataSourceIsEmpty()
+    }
+    
+    private func checkIfDataSourceIsEmpty() {
+        
+        let isEmpty = fetchedResultsController.sections?.isEmpty == true
+        noResultsLabel.isHidden = !isEmpty
     }
     
     private func showTaskDetail(with task: Task) {
@@ -235,6 +245,7 @@ extension TaskListViewController: NSFetchedResultsControllerDelegate {
             tableView.deleteSections(indexSet, with: .automatic)
         default: break
         }
+        checkIfDataSourceIsEmpty()
     }
     
     func controller(_ controller:

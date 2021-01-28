@@ -20,6 +20,7 @@ final class TaskDetailViewController: UIViewController {
     // MARK: - Private Properties
     
     private var task: Task!
+    private var taskDatabaseManager: TaskDatabaseManagerProtocol = TaskDatabaseManager()
     
     // MARK: - Lifecycle Methods
     
@@ -89,9 +90,9 @@ final class TaskDetailViewController: UIViewController {
         
         switch task.taskStatus {
         case .pending:
-            TaskDatabaseManager.shared.updateTaskStatus(task, newStatus: .accepted)
+            taskDatabaseManager.updateTaskStatus(task, newStatus: .accepted)
         case .accepted:
-            TaskDatabaseManager.shared.updateTaskStatus(task, newStatus: .completed)
+            taskDatabaseManager.updateTaskStatus(task, newStatus: .completed)
         default:
             break
         }

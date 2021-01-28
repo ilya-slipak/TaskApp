@@ -11,14 +11,14 @@ final class PickerViewController: UIViewController {
     
     // MARK: - IBOutlet Properties
     
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var safeAreaView: UIView!
-    @IBOutlet weak var applyButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var separatorView: UIView!
-    @IBOutlet weak var pickerView: UIPickerView!
-    @IBOutlet weak var bottomSafeAreaConstraint: NSLayoutConstraint!
-    @IBOutlet weak var bottomSafeAreaHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var contentView: UIView!
+    @IBOutlet private weak var safeAreaView: UIView!
+    @IBOutlet private weak var applyButton: UIButton!
+    @IBOutlet private weak var cancelButton: UIButton!
+    @IBOutlet private weak var separatorView: UIView!
+    @IBOutlet private weak var pickerView: UIPickerView!
+    @IBOutlet private weak var bottomSafeAreaConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var bottomSafeAreaHeightConstraint: NSLayoutConstraint!
     
     // MARK: - Private Properties
     

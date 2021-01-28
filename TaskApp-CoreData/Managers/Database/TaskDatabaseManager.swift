@@ -7,9 +7,18 @@
 
 import Foundation
 
-final class TaskDatabaseManager {
+protocol TaskDatabaseManagerProtocol {
     
-    static let shared = TaskDatabaseManager()
+    func createTask(title: String, description: String, images: [ImageModel])
+    func updateTaskStatus(_ task: Task, newStatus: Task.Status)
+    func deleteTask(_ task: Task)
+}
+
+final class TaskDatabaseManager {
+
+}
+
+extension TaskDatabaseManager: TaskDatabaseManagerProtocol {
     
     func createTask(title: String, description: String, images: [ImageModel]) {
         

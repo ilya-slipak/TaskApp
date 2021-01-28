@@ -21,6 +21,7 @@ final class NewTaskViewController: UIViewController {
     
     // MARK: - Private Properties
     
+    private var taskDatabaseManager: TaskDatabaseManagerProtocol = TaskDatabaseManager()
     private let imagePicker = MediaPicker(pickerType: .image)
     private var images: [ImageModel] = []
     
@@ -41,6 +42,7 @@ final class NewTaskViewController: UIViewController {
         descriptionTextView.setupPlaceholder(text: "Description")
         photoMediaPicker.setup(with: images, type: .image, inputFlow: .add)
         videoMediaPicker.setup(with: [], type: .video, inputFlow: .add)
+        videoMediaPicker.isHidden = true
         
         photoMediaPicker.onAdd = { [weak self] in
             
@@ -112,9 +114,9 @@ final class NewTaskViewController: UIViewController {
             return
         }
         
-        TaskDatabaseManager.shared.createTask(title: titleTextField.text!,
-                                              description: descriptionTextView.text,
-                                              images: images)
+        taskDatabaseManager.createTask(title: titleTextField.text!,
+                                       description: descriptionTextView.text,
+                                       images: images)
         navigationController?.popViewController(animated: true)
     }
 }

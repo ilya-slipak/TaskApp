@@ -8,46 +8,49 @@
 import Foundation
 import CoreData
 
+protocol DatabaseManagerProtocol {
+    
+    // MARK: - Properties
+    
+    var context: NSManagedObjectContext { get }
+    
+    // MARK: - Methods
+    
+    func saveContext ()
+    func deleteEntity(_ entity: NSManagedObject)
+    func deleteEntities(_ entities: [NSManagedObject])
+    func fetchEntities<T: NSManagedObject>(object: T.Type,
+                                           predicate: NSPredicate?) throws -> [T]
+}
+
 final class DatabaseManager {
     
     static let shared = DatabaseManager()
-    
-    // MARK: - Public Properties
-    
-    var context: NSManagedObjectContext {
-        return persistentContainer.viewContext
-    }
-    
+        
     // MARK: - Core Data stack
-
-    lazy var persistentContainer: NSPersistentContainer = {
-
+    
+    private lazy var persistentContainer: NSPersistentContainer = {
+        
         let container = NSPersistentContainer(name: "TaskApp_CoreData")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
                 debugPrint("Unresolved error \(error), \(error.userInfo)")
             }
         })
         return container
     }()
+}
+
+extension DatabaseManager: DatabaseManagerProtocol {
     
-    // MARK: - Public Methods
+    var context: NSManagedObjectContext {
+        return persistentContainer.viewContext
+    }
     
-    func fetchEntities<ModelEntity: NSManagedObject>(object: ModelEntity.Type,
-                                                     predicate: NSPredicate?) throws -> [ModelEntity] {
+    func fetchEntities<T: NSManagedObject>(object: T.Type,
+                                           predicate: NSPredicate?) throws -> [T] {
         
-        let fetchRequest = NSFetchRequest<ModelEntity>(entityName: "\(ModelEntity.self)")
+        let fetchRequest = NSFetchRequest<T>(entityName: "\(T.self)")
         fetchRequest.predicate = predicate
         let models = try context.fetch(fetchRequest)
         
@@ -67,18 +70,14 @@ final class DatabaseManager {
         saveContext()
     }
     
-    // MARK: - Core Data Saving support
-
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                debugPrint("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }
