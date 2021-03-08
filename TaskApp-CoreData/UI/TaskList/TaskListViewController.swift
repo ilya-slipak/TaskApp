@@ -129,7 +129,8 @@ final class TaskListViewController: UIViewController {
         guard let selectedIndex = index else {
             return
         }
-        let controller = ScreenFactory.makePickerScreen(with: TaskFilterDataSource.allCases, selectedIndex: selectedIndex)
+        let controller = ScreenFactory.makePickerScreen(with: TaskFilterDataSource.allCases,
+                                                        selectedIndex: selectedIndex)
         controller.onApply = { [weak self] index in
             let newFilterRule = TaskFilterDataSource.allCases[index]
             self?.filterRule = newFilterRule
@@ -146,7 +147,8 @@ final class TaskListViewController: UIViewController {
             return
         }
 
-        let controller = ScreenFactory.makePickerScreen(with: TaskSortDataSource.allCases, selectedIndex: selectedIndex)
+        let controller = ScreenFactory.makePickerScreen(with: TaskSortDataSource.allCases,
+                                                        selectedIndex: selectedIndex)
         controller.onApply = { [weak self] index in
             let newSortRule = TaskSortDataSource.allCases[index]
             self?.sortRule = newSortRule
