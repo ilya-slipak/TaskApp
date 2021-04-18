@@ -11,14 +11,14 @@ enum ScreenFactory {
     
     static func makeTaskListScreen() -> TaskListViewController {
         
-        let controller = TaskListViewController.instantiateFromStoryboard()
+        let controller = TaskListViewController.makeFromStoryboard()
                     
         return controller
     }
     
     static func makeTaskDetailScreen(with task: Task) -> TaskDetailViewController {
         
-        let controller = TaskDetailViewController.instantiateFromStoryboard()
+        let controller = TaskDetailViewController.makeFromStoryboard()
         
         controller.setup(with: task)
         
@@ -27,21 +27,21 @@ enum ScreenFactory {
         
     static func makeEditTaskScreen() -> EditTaskViewController {
         
-        let controller = EditTaskViewController.instantiateFromStoryboard()
+        let controller = EditTaskViewController.makeFromStoryboard()
         
         return controller
     }
     
     static func makeNewTaskScreen() -> NewTaskViewController {
         
-        let controller = NewTaskViewController.instantiateFromStoryboard()
+        let controller = NewTaskViewController.makeFromStoryboard()
         
         return controller
     }
     
     static func makePickerScreen(with dataSource: [PickerRuleModel], selectedIndex: Int) -> PickerViewController {
         
-        let controller = PickerViewController.instantiateFromStoryboard()
+        let controller = PickerViewController.makeFromStoryboard()
 
         controller.setup(dataSource: dataSource, selectedIndex: selectedIndex)
         
@@ -50,7 +50,7 @@ enum ScreenFactory {
     
     static func makePhotoPreviewScreen(with mediaModel: MediaModel) -> PhotoPreviewViewController {
         
-        let controller = PhotoPreviewViewController.instantiateFromStoryboard()
+        let controller = PhotoPreviewViewController.makeFromStoryboard()
 
         controller.setup(with: mediaModel)
         
@@ -59,7 +59,7 @@ enum ScreenFactory {
     
     static func makeVideoPreviewScreen() -> VideoPreviewViewController {
         
-        let controller = VideoPreviewViewController.instantiateFromStoryboard()
+        let controller = VideoPreviewViewController.makeFromStoryboard()
         
         return controller
     }

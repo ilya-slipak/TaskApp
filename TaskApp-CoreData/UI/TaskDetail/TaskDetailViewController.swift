@@ -90,9 +90,9 @@ final class TaskDetailViewController: UIViewController {
         
         switch task.taskStatus {
         case .pending:
-            taskDatabaseManager.updateTaskStatus(task, newStatus: .accepted)
+            taskDatabaseManager.updateStatus(task, newStatus: .accepted)
         case .accepted:
-            taskDatabaseManager.updateTaskStatus(task, newStatus: .completed)
+            taskDatabaseManager.updateStatus(task, newStatus: .completed)
         default:
             break
         }

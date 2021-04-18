@@ -1,5 +1,5 @@
 //
-//  UIStoryboard+MakeController.swift
+//  UIViewController+MakeFromStoryboard.swift
 //  TaskApp-CoreData
 //
 //  Created by Ilya Slipak on 07.01.2021.
@@ -9,7 +9,7 @@ import UIKit
 
 extension UIViewController {
     
-    static func instantiateFromStoryboard(_ name: String = "Main") -> Self
+    static func makeFromStoryboard(_ name: String = "Main") -> Self
     {
         return instantiateFromStoryboardHelper(name)
     }

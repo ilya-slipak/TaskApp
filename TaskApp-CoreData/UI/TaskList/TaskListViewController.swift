@@ -28,7 +28,7 @@ final class TaskListViewController: UIViewController {
             updateRequestSettings(for: fetchRequest)
             let fetchedResultsController = NSFetchedResultsController(
                 fetchRequest: fetchRequest,
-                managedObjectContext: DatabaseManager.shared.context,
+                managedObjectContext: DatabaseManager.shared.mainContext,
                 sectionNameKeyPath: #keyPath(Task.status),
                 cacheName: nil)
             fetchedResultsController.delegate = self
@@ -98,7 +98,7 @@ final class TaskListViewController: UIViewController {
     private func deleteTask(at indexPath: IndexPath) {
         
         let task = fetchedResultsController.object(at: indexPath)
-        taskDatabaseManager.deleteTask(task)
+        taskDatabaseManager.delete(task)
         checkIfDataSourceIsEmpty()
     }
     

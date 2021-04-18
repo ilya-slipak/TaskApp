@@ -1,72 +1,43 @@
 //
-//  FileStorable.swift
+//  FileStorage.swift
 //  TaskApp-CoreData
 //
-//  Created by Ilya Slipak on 10.01.2021.
+//  Created by Ilya Slipak on 18.04.2021.
 //
 
 import Foundation
 
-protocol FileStorage {
+final class FileStorage {
     
-    // MARK: - Properties
+    private let name: String
     
-    var storageURL: URL? { get }
-}
-
-extension FileStorage {
-    
-    func saveFile(data: Data, fileName: String) throws -> URL {
+    init(name: String) {
         
-        guard let storageURL = storageURL else {
-            throw FileStorageError.emptyStorage
-        }
-        
-        let fileURL = storageURL.appendingPathComponent(fileName)
-        let isExist = fileExists(atPath: fileURL.path)
-        if !isExist {
-            try data.write(to: fileURL)
-        }
-        
-        return fileURL
+        self.name = name
     }
     
-    func getFileURL(fileName: String) throws -> URL {
+    lazy var storageURL: URL? = {
         
-        guard let storageURL = storageURL else {
-            throw FileStorageError.emptyStorage
-        }
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory: URL = paths[0]
+        let dataPath = documentsDirectory.appendingPathComponent(name)
         
-        let fileURL = storageURL.appendingPathComponent(fileName)
+        if !isExist(at: dataPath.path) {
 
-        return fileURL
-    }
-    
-    func deleteFile(_ path: String) {
-        
-        let isExist = fileExists(atPath: path)
-        if isExist {
             do {
-                try FileManager.default.removeItem(atPath: path)
+                try FileManager.default.createDirectory(at: dataPath,
+                                                        withIntermediateDirectories: false,
+                                                        attributes: nil)
             } catch {
-                debugPrint("Failed to delete file:",error.localizedDescription)
+                debugPrint(error.localizedDescription)
+                return nil
             }
         }
-    }
-    
-    func fileExists(atPath path: String) -> Bool {
-        
-        return FileManager.default.fileExists(atPath: path)
-    }
-    
-    func removeAll() {
-        
-        guard let storageURL = storageURL else {
-            let error = FileStorageError.emptyStorage
-            debugPrint("Error:", error.localizedDescription)
-            return
-        }
-        
-        deleteFile(storageURL.absoluteString)
-    }
+
+        return dataPath
+    }()
 }
+
+// MARK: - FileStorable
+
+extension FileStorage: FileStorable { }

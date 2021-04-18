@@ -20,9 +20,7 @@
 		0531E79425A8D7FF00D976B5 /* MediaCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0531E79225A8D7FF00D976B5 /* MediaCollectionViewCell.xib */; };
 		0536485025AB1B980084EBD4 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0536484E25AB1B980084EBD4 /* TaskTableViewCell.swift */; };
 		0536485125AB1B980084EBD4 /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0536484F25AB1B980084EBD4 /* TaskTableViewCell.xib */; };
-		053C102225AAFB090077DEBA /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C102125AAFB090077DEBA /* FileStorage.swift */; };
-		053C102525AAFB140077DEBA /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C102425AAFB140077DEBA /* ImageStorage.swift */; };
-		053C102825AAFB1E0077DEBA /* VideoStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C102725AAFB1E0077DEBA /* VideoStorage.swift */; };
+		053C102225AAFB090077DEBA /* FileStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C102125AAFB090077DEBA /* FileStorable.swift */; };
 		0580285325ACD4F4006D43F3 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580285225ACD4F4006D43F3 /* ImageModel.swift */; };
 		0580285625ACE5B5006D43F3 /* TaskSortDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580285525ACE5B5006D43F3 /* TaskSortDataSource.swift */; };
 		0580285925ACE5BE006D43F3 /* TaskFilterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580285825ACE5BE006D43F3 /* TaskFilterDataSource.swift */; };
@@ -44,13 +42,14 @@
 		05D0768425B42EC0001116DF /* PickerRuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D0768325B42EC0001116DF /* PickerRuleModel.swift */; };
 		05D092A725A8F9CA000B5B52 /* MediaPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D092A625A8F9CA000B5B52 /* MediaPicker.swift */; };
 		05D092AA25A9018C000B5B52 /* UIImage+ResizedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D092A925A9018C000B5B52 /* UIImage+ResizedImage.swift */; };
-		05DEF74625A79EEC00AE704B /* UIViewController+MakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF74525A79EEC00AE704B /* UIViewController+MakeController.swift */; };
+		05DEF74625A79EEC00AE704B /* UIViewController+MakeFromStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF74525A79EEC00AE704B /* UIViewController+MakeFromStoryboard.swift */; };
 		05DEF74925A79F1100AE704B /* UIView+MakeFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF74825A79F1100AE704B /* UIView+MakeFromNib.swift */; };
 		05DEF74D25A79F5200AE704B /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF74C25A79F5200AE704B /* ScreenFactory.swift */; };
 		05DEF75125A7A0E000AE704B /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF75025A7A0E000AE704B /* TaskDetailViewController.swift */; };
 		05DEF75425A7A0F900AE704B /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF75325A7A0F900AE704B /* NewTaskViewController.swift */; };
 		05DEF75725A7A10F00AE704B /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF75625A7A10F00AE704B /* EditTaskViewController.swift */; };
 		05DEF75C25A7A22900AE704B /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF75B25A7A22900AE704B /* PickerViewController.swift */; };
+		05E5692A262C35160021531C /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E56929262C35160021531C /* FileStorage.swift */; };
 		05E7960725B2F3E9002C3C01 /* FileStorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E7960625B2F3E9002C3C01 /* FileStorageError.swift */; };
 		05E7960A25B328F6002C3C01 /* DatabaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E7960925B328F6002C3C01 /* DatabaseError.swift */; };
 		05EC3B1925A8D1EF00A1FE90 /* ErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EC3B1825A8D1EF00A1FE90 /* ErrorLabel.swift */; };
@@ -78,9 +77,7 @@
 		0531E79225A8D7FF00D976B5 /* MediaCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaCollectionViewCell.xib; sourceTree = "<group>"; };
 		0536484E25AB1B980084EBD4 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		0536484F25AB1B980084EBD4 /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
-		053C102125AAFB090077DEBA /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
-		053C102425AAFB140077DEBA /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
-		053C102725AAFB1E0077DEBA /* VideoStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStorage.swift; sourceTree = "<group>"; };
+		053C102125AAFB090077DEBA /* FileStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorable.swift; sourceTree = "<group>"; };
 		0580285225ACD4F4006D43F3 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		0580285525ACE5B5006D43F3 /* TaskSortDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSortDataSource.swift; sourceTree = "<group>"; };
 		0580285825ACE5BE006D43F3 /* TaskFilterDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFilterDataSource.swift; sourceTree = "<group>"; };
@@ -104,13 +101,14 @@
 		05D0768325B42EC0001116DF /* PickerRuleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerRuleModel.swift; sourceTree = "<group>"; };
 		05D092A625A8F9CA000B5B52 /* MediaPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPicker.swift; sourceTree = "<group>"; };
 		05D092A925A9018C000B5B52 /* UIImage+ResizedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ResizedImage.swift"; sourceTree = "<group>"; };
-		05DEF74525A79EEC00AE704B /* UIViewController+MakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+MakeController.swift"; sourceTree = "<group>"; };
+		05DEF74525A79EEC00AE704B /* UIViewController+MakeFromStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+MakeFromStoryboard.swift"; sourceTree = "<group>"; };
 		05DEF74825A79F1100AE704B /* UIView+MakeFromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+MakeFromNib.swift"; sourceTree = "<group>"; };
 		05DEF74C25A79F5200AE704B /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
 		05DEF75025A7A0E000AE704B /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		05DEF75325A7A0F900AE704B /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 		05DEF75625A7A10F00AE704B /* EditTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewController.swift; sourceTree = "<group>"; };
 		05DEF75B25A7A22900AE704B /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		05E56929262C35160021531C /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
 		05E7960625B2F3E9002C3C01 /* FileStorageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorageError.swift; sourceTree = "<group>"; };
 		05E7960925B328F6002C3C01 /* DatabaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseError.swift; sourceTree = "<group>"; };
 		05EC3B1825A8D1EF00A1FE90 /* ErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLabel.swift; sourceTree = "<group>"; };
@@ -278,7 +276,7 @@
 		05872B4A25A7882B0040FB0B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				05DEF74525A79EEC00AE704B /* UIViewController+MakeController.swift */,
+				05DEF74525A79EEC00AE704B /* UIViewController+MakeFromStoryboard.swift */,
 				05DEF74825A79F1100AE704B /* UIView+MakeFromNib.swift */,
 				05F01EBE25A8C2E20037A40C /* UITextField+ValidateText.swift */,
 				050BEE5525A8C5B800603AC9 /* CustomTextView+ValidateText.swift */,
@@ -430,9 +428,8 @@
 			isa = PBXGroup;
 			children = (
 				05ECB8CB25AA3DE000504FDA /* FileManager.swift */,
-				053C102125AAFB090077DEBA /* FileStorage.swift */,
-				053C102425AAFB140077DEBA /* ImageStorage.swift */,
-				053C102725AAFB1E0077DEBA /* VideoStorage.swift */,
+				053C102125AAFB090077DEBA /* FileStorable.swift */,
+				05E56929262C35160021531C /* FileStorage.swift */,
 			);
 			path = FileManager;
 			sourceTree = "<group>";
@@ -558,16 +555,15 @@
 				05F01EB925A8C15C0037A40C /* TextValidator.swift in Sources */,
 				05DEF74925A79F1100AE704B /* UIView+MakeFromNib.swift in Sources */,
 				0531E78C25A8D72D00D976B5 /* MediaPickerView.swift in Sources */,
-				053C102825AAFB1E0077DEBA /* VideoStorage.swift in Sources */,
 				05DEF74D25A79F5200AE704B /* ScreenFactory.swift in Sources */,
 				0526C3C925ABB31700902F57 /* TaskDatabaseManager.swift in Sources */,
 				0536485025AB1B980084EBD4 /* TaskTableViewCell.swift in Sources */,
+				05E5692A262C35160021531C /* FileStorage.swift in Sources */,
 				0523E07625AAF36E00D04760 /* File+CoreDataClass.swift in Sources */,
 				05F01EBC25A8C24A0037A40C /* ValidationError.swift in Sources */,
-				053C102525AAFB140077DEBA /* ImageStorage.swift in Sources */,
 				05872B2325A786100040FB0B /* AppDelegate.swift in Sources */,
 				0580285925ACE5BE006D43F3 /* TaskFilterDataSource.swift in Sources */,
-				05DEF74625A79EEC00AE704B /* UIViewController+MakeController.swift in Sources */,
+				05DEF74625A79EEC00AE704B /* UIViewController+MakeFromStoryboard.swift in Sources */,
 				0523E07725AAF36E00D04760 /* File+CoreDataProperties.swift in Sources */,
 				05BB6F7925A78899004B38E0 /* Theme.swift in Sources */,
 				0580285325ACD4F4006D43F3 /* ImageModel.swift in Sources */,
@@ -587,7 +583,7 @@
 				05EC3B1925A8D1EF00A1FE90 /* ErrorLabel.swift in Sources */,
 				05E7960725B2F3E9002C3C01 /* FileStorageError.swift in Sources */,
 				05DEF75125A7A0E000AE704B /* TaskDetailViewController.swift in Sources */,
-				053C102225AAFB090077DEBA /* FileStorage.swift in Sources */,
+				053C102225AAFB090077DEBA /* FileStorable.swift in Sources */,
 				05872B2D25A786110040FB0B /* TaskApp_CoreData.xcdatamodeld in Sources */,
 				05EC3B1C25A8D20500A1FE90 /* CusomButton.swift in Sources */,
 				0531E79325A8D7FF00D976B5 /* MediaCollectionViewCell.swift in Sources */,

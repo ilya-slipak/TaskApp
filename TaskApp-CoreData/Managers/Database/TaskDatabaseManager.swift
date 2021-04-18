@@ -9,9 +9,9 @@ import Foundation
 
 protocol TaskDatabaseManagerProtocol {
     
-    func createTask(title: String, description: String, images: [ImageModel])
-    func updateTaskStatus(_ task: Task, newStatus: Task.Status)
-    func deleteTask(_ task: Task)
+    func create(title: String, description: String, images: [ImageModel])
+    func updateStatus(_ task: Task, newStatus: Task.Status)
+    func delete(_ task: Task)
 }
 
 final class TaskDatabaseManager {
@@ -20,24 +20,25 @@ final class TaskDatabaseManager {
 
 extension TaskDatabaseManager: TaskDatabaseManagerProtocol {
     
-    func createTask(title: String, description: String, images: [ImageModel]) {
+    func create(title: String, description: String, images: [ImageModel]) {
         
-        let context = DatabaseManager.shared.context
-        _ = Task(title: title,
-                        description: description,
-                        images: images,
-                        context: context)
-        DatabaseManager.shared.saveContext()
+        DatabaseManager.shared.create(on: .mainQueueConcurrencyType) { context in
+            _ = Task(title: title,
+                     description: description,
+                     images: images,
+                     context: context)
+            DatabaseManager.shared.save()
+        }
     }
   
-    func updateTaskStatus(_ task: Task, newStatus: Task.Status) {
+    func updateStatus(_ task: Task, newStatus: Task.Status) {
         
         task.status = newStatus.rawValue
-        DatabaseManager.shared.saveContext()
+        DatabaseManager.shared.save()
     }
     
-    func deleteTask(_ task: Task) {
+    func delete(_ task: Task) {
         
-        DatabaseManager.shared.deleteEntity(task)
+        DatabaseManager.shared.delete(task)
     }
 }

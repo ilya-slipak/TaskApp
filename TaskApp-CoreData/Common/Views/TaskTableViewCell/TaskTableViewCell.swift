@@ -40,22 +40,15 @@ final class TaskTableViewCell: UITableViewCell {
             .first?
             .filename
         
-        guard let imageName = imageFilename else {
+        guard
+            let imageName = imageFilename,
+            let imageURL = try? FileManager.imageStorage.getURL(for: imageName) else {
             setupEmptyImage()
             return
         }
         
-        do {
-            let imageURL = try ImageStorage.shared.getFileURL(fileName: imageName)
-            let image = UIImage(contentsOfFile: imageURL.path)
-            taskImageView.image = image?.resized(targetSize: taskImageView.frame.size)
-        } catch let error as FileStorageError {
-            debugPrint("Error:", error.localizedDescription)
-            setupEmptyImage()
-        } catch {
-            debugPrint("Error:", error.localizedDescription)
-            setupEmptyImage()
-        }
+        let image = UIImage(contentsOfFile: imageURL.path)
+        taskImageView.image = image?.resized(targetSize: taskImageView.frame.size)
     }
     
     // MARK: - Private Methods

@@ -9,9 +9,23 @@ import Foundation
 
 extension FileManager {
     
-    func removeAll()  {
+    static let imageStorage: FileStorable = FileStorage(name: Constants.imageStorage)
+    static let videoStorage: FileStorable = FileStorage(name: Constants.videoStorage)
+    
+    static func removeAll()  {
+
+        imageStorage.removeAll()
+        videoStorage.removeAll()
+    }
+}
+
+// MARK: - Constants
+
+extension FileManager {
+    
+    struct Constants {
         
-        ImageStorage.shared.removeAll()
-        VideoStorage.shared.removeAll()
+        static let imageStorage = "Image"
+        static let videoStorage = "Video"
     }
 }

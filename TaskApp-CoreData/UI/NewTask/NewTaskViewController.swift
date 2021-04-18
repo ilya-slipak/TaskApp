@@ -72,7 +72,7 @@ final class NewTaskViewController: UIViewController {
         }
         let fileName = "\(UUID().uuidString.lowercased()).jpeg"
         do {
-            let originalURL = try ImageStorage.shared.saveFile(data: imageData, fileName: fileName)
+            let originalURL = try FileManager.imageStorage.save(imageData, fileName: fileName)
             let imageModel = ImageModel(originalURL: originalURL)
             self.images.append(imageModel)
             self.photoMediaPicker.updateDataSource(self.images)
@@ -114,7 +114,7 @@ final class NewTaskViewController: UIViewController {
             return
         }
         
-        taskDatabaseManager.createTask(title: titleTextField.text!,
+        taskDatabaseManager.create(title: titleTextField.text!,
                                        description: descriptionTextView.text,
                                        images: images)
         navigationController?.popViewController(animated: true)
