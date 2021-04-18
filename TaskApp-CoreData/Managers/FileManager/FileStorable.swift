@@ -9,10 +9,6 @@ import Foundation
 
 protocol FileStorable {
     
-    // MARK: - Properties
-    
-    var storageURL: URL? { get }
-    
     // MARK: - Methods
     
     func removeAll()
@@ -26,7 +22,7 @@ extension FileStorable where Self: FileStorage {
     
     func removeAll() {
         
-        guard let storageURL = storageURL else {
+        guard let storageURL = url else {
             let error = FileStorageError.emptyStorage
             debugPrint("Error:", error.localizedDescription)
             return
@@ -55,7 +51,7 @@ extension FileStorable where Self: FileStorage {
     
     func getURL(for fileName: String) throws -> URL {
         
-        guard let storageURL = storageURL else {
+        guard let storageURL = url else {
             throw FileStorageError.emptyStorage
         }
         
@@ -66,7 +62,7 @@ extension FileStorable where Self: FileStorage {
     
     func save(_ data: Data, fileName: String) throws -> URL {
         
-        guard let storageURL = storageURL else {
+        guard let storageURL = url else {
             throw FileStorageError.emptyStorage
         }
         

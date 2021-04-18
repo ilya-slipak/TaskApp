@@ -16,11 +16,13 @@ final class FileStorage {
         self.name = name
     }
     
-    lazy var storageURL: URL? = {
+    lazy var url: URL? = {
         
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentsDirectory: URL = paths[0]
-        let dataPath = documentsDirectory.appendingPathComponent(name)
+        guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last else {
+            return nil
+        }
+        
+        let dataPath = directory.appendingPathComponent(name)
         
         if !isExist(at: dataPath.path) {
 

@@ -51,21 +51,29 @@ final class DatabaseManager {
     // MARK: - Core Data Stack
     
     private func setup() {
-        
-        guard let documentsUrl = FileManager.default.urls(for: .documentDirectory,
-                                                          in: .userDomainMask).last else {
-            debugPrint("Failed to read documents url")
-            return
-        }
-
-        let storageURL = documentsUrl.appendingPathComponent(Constants.storageName)
-        model = NSManagedObjectModel.mergedModel(from: nil)
-        setupCoordinator(storageURL)
+                
+        setupModel()
+        setupCoordinator()
         setupMainContext()
         setupBackgroundContext()
     }
     
-    private func setupCoordinator(_ url: URL) {
+    private func setupModel() {
+        
+        guard let modelURL = Bundle.main.url(forResource: "TaskApp_CoreData",
+                                             withExtension: "momd") else {
+            return
+        }
+        
+        model = NSManagedObjectModel(contentsOf: modelURL)
+    }
+    
+    private func setupCoordinator() {
+        
+        guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last else {
+            return
+        }
+        let databaseURL = directory.appendingPathComponent(Constants.databaseName)
         
         let options = [NSMigratePersistentStoresAutomaticallyOption: true,
                        NSInferMappingModelAutomaticallyOption: true]
@@ -75,7 +83,7 @@ final class DatabaseManager {
         do {
             try coordinator.addPersistentStore(ofType: NSSQLiteStoreType,
                                                configurationName: nil,
-                                               at: url,
+                                               at: databaseURL,
                                                options: options)
         } catch let error as NSError {
             coordinator = nil
@@ -182,12 +190,10 @@ extension DatabaseManager: DatabaseManaging {
     }
 }
 
-// MARK: - Constants
-
 extension DatabaseManager {
     
     struct Constants {
         
-        static let storageName = "TaskAppStorage"
+        static let databaseName = "TaskAppDatabase"
     }
 }
