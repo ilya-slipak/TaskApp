@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class FileStorage {
+final class FileStorage: FileStorable {
     
     private let name: String
     
@@ -16,7 +16,7 @@ final class FileStorage {
         self.name = name
     }
     
-    lazy var url: URL? = {
+    var url: URL? {
         
         guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last else {
             return nil
@@ -25,7 +25,7 @@ final class FileStorage {
         let dataPath = directory.appendingPathComponent(name)
         
         if !isExist(at: dataPath.path) {
-
+            
             do {
                 try FileManager.default.createDirectory(at: dataPath,
                                                         withIntermediateDirectories: false,
@@ -35,11 +35,7 @@ final class FileStorage {
                 return nil
             }
         }
-
+        
         return dataPath
-    }()
+    }
 }
-
-// MARK: - FileStorable
-
-extension FileStorage: FileStorable { }

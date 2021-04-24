@@ -57,7 +57,7 @@ final class PhotoPreviewViewController: UIViewController {
     private func setupImage() {
         
         let fileName = mediaModel.filename
-        guard let imageURL = try? FileManager.imageStorage.getURL(for: fileName) else {
+        guard let imageURL = try? FileManager.imageStorage.getURL(by: fileName) else {
             imageView.image = nil
             return
         }

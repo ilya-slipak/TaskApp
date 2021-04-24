@@ -24,7 +24,7 @@ protocol DatabaseManaging {
     func create(on queue: NSManagedObjectContextConcurrencyType, _ block: @escaping CoreDataBlock)
     func delete(_ entity: NSManagedObject)
     func delete(_ entities: [NSManagedObject])
-    func fetch<T: NSManagedObject>(object: T.Type,
+    func fetch<T: NSManagedObject>(type: T.Type,
                                    predicate: NSPredicate?,
                                    sortDescriptors: [NSSortDescriptor]?) throws -> [T]
 }
@@ -140,7 +140,7 @@ final class DatabaseManager {
  
 extension DatabaseManager: DatabaseManaging {
 
-    func fetch<T: NSManagedObject>(object: T.Type,
+    func fetch<T: NSManagedObject>(type: T.Type,
                                    predicate: NSPredicate?,
                                    sortDescriptors: [NSSortDescriptor]?) throws -> [T] {
         
@@ -151,7 +151,7 @@ extension DatabaseManager: DatabaseManaging {
         
         return models
     }
-    
+        
     func create(on queue: NSManagedObjectContextConcurrencyType, _ block: @escaping CoreDataBlock) {
         
         let context = getContext(using: queue)

@@ -34,7 +34,7 @@ final class MediaCollectionViewCell: UICollectionViewCell {
     func configure(with mediaModel: MediaModel) {
         
         let fileName = mediaModel.filename
-        guard let imageURL = try? FileManager.imageStorage.getURL(for: fileName) else {
+        guard let imageURL = try? FileManager.imageStorage.getURL(by: fileName) else {
             imageView.image = nil
             return
         }

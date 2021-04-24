@@ -42,7 +42,7 @@ final class TaskTableViewCell: UITableViewCell {
         
         guard
             let imageName = imageFilename,
-            let imageURL = try? FileManager.imageStorage.getURL(for: imageName) else {
+            let imageURL = try? FileManager.imageStorage.getURL(by: imageName) else {
             setupEmptyImage()
             return
         }

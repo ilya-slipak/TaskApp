@@ -72,7 +72,7 @@ final class NewTaskViewController: UIViewController {
         }
         let fileName = "\(UUID().uuidString.lowercased()).jpeg"
         do {
-            let originalURL = try FileManager.imageStorage.save(imageData, fileName: fileName)
+            let originalURL = try FileManager.imageStorage.save(imageData, by: fileName)
             let imageModel = ImageModel(originalURL: originalURL)
             self.images.append(imageModel)
             self.photoMediaPicker.updateDataSource(self.images)

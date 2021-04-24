@@ -12,10 +12,10 @@ protocol FileStorable {
     // MARK: - Methods
     
     func removeAll()
-    func delete(_ path: String)
+    func delete(at path: String)
     func isExist(at path: String) -> Bool
-    func getURL(for fileName: String) throws -> URL
-    func save(_ data: Data, fileName: String) throws -> URL
+    func getURL(by fileName: String) throws -> URL
+    func save(_ data: Data, by fileName: String) throws -> URL
 }
 
 extension FileStorable where Self: FileStorage {
@@ -28,10 +28,10 @@ extension FileStorable where Self: FileStorage {
             return
         }
         
-        delete(storageURL.absoluteString)
+        delete(at: storageURL.absoluteString)
     }
     
-    func delete(_ path: String) {
+    func delete(at path: String) {
         
         guard isExist(at: path) else {
             return
@@ -49,7 +49,7 @@ extension FileStorable where Self: FileStorage {
         return FileManager.default.fileExists(atPath: path)
     }
     
-    func getURL(for fileName: String) throws -> URL {
+    func getURL(by fileName: String) throws -> URL {
         
         guard let storageURL = url else {
             throw FileStorageError.emptyStorage
@@ -60,7 +60,7 @@ extension FileStorable where Self: FileStorage {
         return fileURL
     }
     
-    func save(_ data: Data, fileName: String) throws -> URL {
+    func save(_ data: Data, by fileName: String) throws -> URL {
         
         guard let storageURL = url else {
             throw FileStorageError.emptyStorage
